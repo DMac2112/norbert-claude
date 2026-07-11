@@ -1,0 +1,8 @@
+---
+// T — trilingual text. Renders all three languages; CSS shows only the active one
+// (html[data-lang] rule in global.css). All three ship in the HTML → crawlable, no
+// flash, and the page still works with JS off (defaults to English).
+export interface Tr { en: string; hu: string; pl: string }
+const { t } = Astro.props as { t: Tr };
+---
+<span class="t" lang="en">{t.en}</span><span class="t" lang="hu">{t.hu}</span><span class="t" lang="pl">{t.pl}</span>

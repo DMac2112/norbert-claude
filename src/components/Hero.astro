@@ -1,0 +1,25 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const h = site.hero;
+---
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker"><T t={h.kicker} /></p>
+      <h1><T t={h.heading} /></h1>
+      <p class="hero-sub"><T t={h.sub} /></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact" data-subject="translation"><T t={h.ctaTranslate} /></a>
+        <a class="btn btn-amber" href="#contact" data-subject="music"><T t={h.ctaMusic} /></a>
+      </div>
+    </div>
+    <div class="portrait" role="img"
+      data-al-en="Portrait placeholder for Norbert"
+      data-al-hu="Norbert portréjának helye"
+      data-al-pl="Miejsce na portret Norberta"
+      aria-label="Portrait placeholder for Norbert">
+      <span>{site.brand.initials}</span>
+    </div>
+  </div>
+</section>

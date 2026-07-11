@@ -1,0 +1,34 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">{site.brand.initials}</span>
+      {site.brand.name}
+    </a>
+
+    <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="site-nav"
+      data-al-en="Open menu" data-al-hu="Menü megnyitása" data-al-pl="Otwórz menu" aria-label="Open menu">☰</button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      {site.nav.map((item) => (
+        <a href={`#${item.id}`}><T t={item.label} /></a>
+      ))}
+    </nav>
+
+    <!-- MASTER SWITCH — always on screen (sticky header): EN → HU → PL → EN -->
+    <button id="lang-switch" class="lang-switch" type="button"
+      data-al-en="Switch language (English → Hungarian → Polish)"
+      data-al-hu="Nyelvváltás (angol → magyar → lengyel)"
+      data-al-pl="Zmień język (angielski → węgierski → polski)"
+      aria-label="Switch language (English → Hungarian → Polish)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c2.6 2.6 3.9 5.7 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.7-3.9-9S9.4 5.6 12 3Z" />
+      </svg>
+      <b>EN</b>
+    </button>
+  </div>
+</header>

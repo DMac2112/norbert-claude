@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "title": {
+      "en": "Norbert Kovács — Hungarian–English Translator & Music Teacher",
+      "hu": "Kovács Norbert — magyar–angol fordító és zenetanár",
+      "pl": "Norbert Kovács — tłumacz węgiersko-angielski i nauczyciel muzyki"
+    },
+    "description": {
+      "en": "Hungarian–English translation and music lessons. Eight years of UK experience, now based in Kraków — working across Poland, the UK and Hungary.",
+      "hu": "Magyar–angol fordítás és zeneórák. Nyolc év egyesült királysági tapasztalat, jelenleg Krakkóban — Lengyelországban, az Egyesült Királyságban és Magyarországon dolgozom.",
+      "pl": "Tłumaczenia węgiersko-angielskie i lekcje muzyki. Osiem lat doświadczenia w Wielkiej Brytanii, obecnie w Krakowie — pracuję w Polsce, Wielkiej Brytanii i na Węgrzech."
+    }
+  },
+  "brand": {
+    "name": "Norbert Kovács",
+    "initials": "NK",
+    "tagline": {
+      "en": "Translator & music teacher",
+      "hu": "Fordító és zenetanár",
+      "pl": "Tłumacz i nauczyciel muzyki"
+    }
+  },
+  "nav": [
+    { "id": "about", "label": { "en": "About", "hu": "Rólam", "pl": "O mnie" } },
+    { "id": "translation", "label": { "en": "Translation", "hu": "Fordítás", "pl": "Tłumaczenia" } },
+    { "id": "music", "label": { "en": "Music lessons", "hu": "Zeneórák", "pl": "Lekcje muzyki" } },
+    { "id": "contact", "label": { "en": "Contact", "hu": "Kapcsolat", "pl": "Kontakt" } }
+  ],
+  "hero": {
+    "kicker": {
+      "en": "Kraków · London · Budapest",
+      "hu": "Krakkó · London · Budapest",
+      "pl": "Kraków · Londyn · Budapeszt"
+    },
+    "heading": {
+      "en": "Bridging languages. Teaching music.",
+      "hu": "Hidat építek nyelvek között. Zenét tanítok.",
+      "pl": "Łączę języki. Uczę muzyki."
+    },
+    "sub": {
+      "en": "I'm Norbert — a Hungarian–English translator with eight years of experience in the UK, newly based in Kraków. I help Polish, British and Hungarian clients say exactly what they mean — and I teach piano and guitar on the side.",
+      "hu": "Norbert vagyok — magyar–angol fordító nyolc év egyesült királysági tapasztalattal, nemrég óta Krakkóban. Lengyel, brit és magyar ügyfeleknek segítek pontosan azt mondani, amit szeretnének — mellette zongorát és gitárt tanítok.",
+      "pl": "Jestem Norbert — tłumacz węgiersko-angielski z ośmioletnim doświadczeniem w Wielkiej Brytanii, od niedawna w Krakowie. Pomagam polskim, brytyjskim i węgierskim klientom powiedzieć dokładnie to, co mają na myśli — a przy okazji uczę gry na pianinie i gitarze.",
+      "_filler": true
+    },
+    "ctaTranslate": { "en": "Get a translation quote", "hu": "Kérj fordítási árajánlatot", "pl": "Poproś o wycenę tłumaczenia" },
+    "ctaMusic": { "en": "Book a music lesson", "hu": "Foglalj zeneórát", "pl": "Umów lekcję muzyki" }
+  },
+  "about": {
+    "heading": { "en": "About me", "hu": "Rólam", "pl": "O mnie" },
+    "body": [
+      {
+        "en": "I grew up in Hungary, spent the last eight years working as a translator in London, and have just made Kraków my home. Living between three countries taught me that translation isn't about words — it's about what people actually mean.",
+        "hu": "Magyarországon nőttem fel, az elmúlt nyolc évet fordítóként Londonban töltöttem, és nemrég Krakkó lett az otthonom. A három ország közötti élet megtanított arra, hogy a fordítás nem a szavakról szól — hanem arról, amit az emberek valójában mondani akarnak.",
+        "pl": "Dorastałem na Węgrzech, przez ostatnie osiem lat pracowałem jako tłumacz w Londynie, a niedawno moim domem stał się Kraków. Życie między trzema krajami nauczyło mnie, że tłumaczenie to nie słowa — to znaczenie, które ludzie naprawdę chcą przekazać.",
+        "_filler": true
+      },
+      {
+        "en": "In the UK I worked with agencies, law firms and small businesses on everything from certified documents to marketing campaigns. Now in Poland, I'm helping local companies reach Hungarian and English-speaking markets — and vice versa.",
+        "hu": "Az Egyesült Királyságban ügynökségekkel, ügyvédi irodákkal és kisvállalkozásokkal dolgoztam, a hiteles dokumentumoktól a marketingkampányokig. Most Lengyelországban helyi cégeknek segítek elérni a magyar és angol nyelvű piacokat — és fordítva.",
+        "pl": "W Wielkiej Brytanii współpracowałem z agencjami, kancelariami prawnymi i małymi firmami — od dokumentów uwierzytelnionych po kampanie marketingowe. Teraz w Polsce pomagam lokalnym firmom docierać na rynki węgiersko- i anglojęzyczne — i odwrotnie.",
+        "_filler": true
+      },
+      {
+        "en": "Music has been the other half of my life since I was six. I've taught piano and guitar for over a decade — patiently, in three languages, to kids and adults alike.",
+        "hu": "A zene hatéves korom óta az életem másik fele. Több mint tíz éve tanítok zongorát és gitárt — türelmesen, három nyelven, gyerekeknek és felnőtteknek egyaránt.",
+        "pl": "Muzyka jest drugą połową mojego życia, odkąd skończyłem sześć lat. Od ponad dekady uczę gry na pianinie i gitarze — cierpliwie, w trzech językach, dzieci i dorosłych.",
+        "_filler": true
+      }
+    ],
+    "chips": [
+      { "en": "Native Hungarian", "hu": "Magyar anyanyelv", "pl": "Węgierski — język ojczysty" },
+      { "en": "Fluent English (8 yrs UK)", "hu": "Folyékony angol (8 év UK)", "pl": "Biegły angielski (8 lat w UK)" },
+      { "en": "Learning Polish", "hu": "Lengyelül tanulok", "pl": "Uczę się polskiego" },
+      { "en": "Based in Kraków", "hu": "Krakkóban élek", "pl": "Mieszkam w Krakowie" },
+      { "en": "Online worldwide", "hu": "Online, világszerte", "pl": "Online na całym świecie" }
+    ]
+  },
+  "translation": {
+    "heading": { "en": "Translation", "hu": "Fordítás", "pl": "Tłumaczenia" },
+    "intro": {
+      "en": "Hungarian ⇄ English, both directions, with native-level care. Based in Poland, I work with Polish agencies and businesses that need Hungarian or English — plus clients across the UK and Hungary.",
+      "hu": "Magyar ⇄ angol, mindkét irányban, anyanyelvi gondossággal. Lengyelországból dolgozom lengyel ügynökségekkel és cégekkel, amelyeknek magyarra vagy angolra van szükségük — valamint brit és magyar ügyfelekkel.",
+      "pl": "Węgierski ⇄ angielski, w obu kierunkach, z natywną starannością. Pracuję z polskimi agencjami i firmami, które potrzebują języka węgierskiego lub angielskiego — oraz z klientami w Wielkiej Brytanii i na Węgrzech.",
+      "_filler": true
+    },
+    "services": [
+      {
+        "title": { "en": "Business & marketing", "hu": "Üzleti és marketing", "pl": "Biznes i marketing" },
+        "desc": {
+          "en": "Websites, brochures, campaigns and product copy that read like they were written in the target language — not translated into it.",
+          "hu": "Weboldalak, brosúrák, kampányok és termékszövegek, amelyek úgy szólnak, mintha a célnyelven íródtak volna.",
+          "pl": "Strony internetowe, broszury, kampanie i teksty produktowe, które brzmią, jakby powstały w języku docelowym — a nie zostały przetłumaczone."
+        }
+      },
+      {
+        "title": { "en": "Official documents", "hu": "Hivatalos dokumentumok", "pl": "Dokumenty urzędowe" },
+        "desc": {
+          "en": "Contracts, certificates, diplomas and personal records handled accurately, confidentially and on time.",
+          "hu": "Szerződések, bizonyítványok, diplomák és személyes iratok — pontosan, bizalmasan és határidőre.",
+          "pl": "Umowy, świadectwa, dyplomy i dokumenty osobiste — dokładnie, poufnie i na czas."
+        }
+      },
+      {
+        "title": { "en": "Websites & software", "hu": "Weboldalak és szoftverek", "pl": "Strony i oprogramowanie" },
+        "desc": {
+          "en": "UI strings, help centres and app store copy localised so nothing feels foreign to your users.",
+          "hu": "Felhasználói felületek, súgók és áruházi szövegek honosítása, hogy semmi ne tűnjön idegennek.",
+          "pl": "Lokalizacja interfejsów, centrów pomocy i opisów w sklepach z aplikacjami — nic nie brzmi obco dla użytkownika."
+        }
+      },
+      {
+        "title": { "en": "Subtitles & transcription", "hu": "Feliratok és átiratok", "pl": "Napisy i transkrypcje" },
+        "desc": {
+          "en": "Video subtitles, interview transcripts and voice-over scripts with natural timing and tone.",
+          "hu": "Videófeliratok, interjúátiratok és szinkronszövegek természetes időzítéssel és hangvétellel.",
+          "pl": "Napisy do filmów, transkrypcje wywiadów i skrypty lektorskie z naturalnym rytmem i tonem."
+        }
+      }
+    ],
+    "stepsHeading": { "en": "How it works", "hu": "Hogyan működik", "pl": "Jak to działa" },
+    "steps": [
+      {
+        "title": { "en": "Send", "hu": "Küldés", "pl": "Wyślij" },
+        "desc": {
+          "en": "Email me the text or file — any format is fine.",
+          "hu": "Küldd el a szöveget vagy fájlt — bármilyen formátum megfelel.",
+          "pl": "Prześlij mi tekst lub plik — dowolny format."
+        }
+      },
+      {
+        "title": { "en": "Quote in 24h", "hu": "Ajánlat 24 órán belül", "pl": "Wycena w 24 h" },
+        "desc": {
+          "en": "You get a fixed price and a delivery date. No surprises.",
+          "hu": "Fix árat és határidőt kapsz. Nincsenek meglepetések.",
+          "pl": "Otrzymasz stałą cenę i termin realizacji. Bez niespodzianek."
+        }
+      },
+      {
+        "title": { "en": "Delivered", "hu": "Kész", "pl": "Gotowe" },
+        "desc": {
+          "en": "Proofread, formatted and delivered — with one round of revisions included.",
+          "hu": "Lektorálva, formázva, leszállítva — egy kör módosítással együtt.",
+          "pl": "Po korekcie, sformatowane i dostarczone — z jedną rundą poprawek w cenie."
+        }
+      }
+    ],
+    "cta": { "en": "Request a quote", "hu": "Árajánlatot kérek", "pl": "Poproś o wycenę" }
+  },
+  "music": {
+    "heading": { "en": "Music lessons", "hu": "Zeneórák", "pl": "Lekcje muzyki" },
+    "intro": {
+      "en": "Piano and guitar for beginners to intermediate players — kids and adults. In person in Kraków, or online anywhere. Lessons in English, Hungarian or (simple) Polish.",
+      "hu": "Zongora és gitár kezdőtől középhaladóig — gyerekeknek és felnőtteknek. Személyesen Krakkóban vagy online bárhol. Órák angolul, magyarul vagy (egyszerű) lengyelül.",
+      "pl": "Pianino i gitara — od początkujących do średnio zaawansowanych, dzieci i dorośli. Stacjonarnie w Krakowie lub online. Lekcje po angielsku, węgiersku lub (prostym) polsku.",
+      "_filler": true
+    },
+    "points": [
+      {
+        "title": { "en": "Piano", "hu": "Zongora", "pl": "Pianino" },
+        "desc": {
+          "en": "Classical foundations or pop favourites — your pick. Reading music from day one, without the boredom.",
+          "hu": "Klasszikus alapok vagy popslágerek — te választasz. Kottaolvasás az első naptól, unalom nélkül.",
+          "pl": "Podstawy klasyczne albo ulubione piosenki — Twój wybór. Czytanie nut od pierwszego dnia, bez nudy."
+        }
+      },
+      {
+        "title": { "en": "Guitar", "hu": "Gitár", "pl": "Gitara" },
+        "desc": {
+          "en": "Acoustic and electric. Chords, strumming and your first songs within weeks.",
+          "hu": "Akusztikus és elektromos. Akkordok, pengetés és az első dalok pár héten belül.",
+          "pl": "Akustyczna i elektryczna. Akordy, bicie i pierwsze piosenki w kilka tygodni."
+        }
+      },
+      {
+        "title": { "en": "For everyone", "hu": "Mindenkinek", "pl": "Dla każdego" },
+        "desc": {
+          "en": "Ages 6 to 96. Total beginners welcome — most of my students started from zero.",
+          "hu": "6-tól 96 éves korig. Teljesen kezdőket is várok — a legtöbb tanítványom nulláról indult.",
+          "pl": "Od 6 do 96 lat. Zapraszam zupełnie początkujących — większość moich uczniów zaczynała od zera."
+        }
+      }
+    ],
+    "priceLine": {
+      "en": "From 120 PLN / 60 min in Kraków · £25 online — first trial lesson half price.",
+      "hu": "Krakkóban 120 PLN / 60 perc ártól · online £25 — az első próbaóra féláron.",
+      "pl": "Od 120 zł / 60 min w Krakowie · 25 GBP online — pierwsza lekcja próbna za pół ceny.",
+      "_filler": true
+    },
+    "cta": { "en": "Book a trial lesson", "hu": "Próbaórát foglalok", "pl": "Umów lekcję próbną" }
+  },
+  "testimonials": {
+    "heading": { "en": "Kind words", "hu": "Ajánlások", "pl": "Opinie" },
+    "items": [
+      {
+        "quote": {
+          "en": "Norbert turned our legal boilerplate into Hungarian that our Budapest office actually praised. Fast, precise, zero fuss.",
+          "hu": "Norbert úgy fordította le a jogi szövegeinket magyarra, hogy a budapesti irodánk kifejezetten megdicsérte. Gyors, pontos, nulla felhajtás.",
+          "pl": "Norbert przełożył nasze teksty prawne na węgierski tak, że nasze biuro w Budapeszcie było zachwycone. Szybko, precyzyjnie, bez zamieszania.",
+          "_filler": true
+        },
+        "author": "Sarah W.",
+        "role": { "en": "Project manager, London agency", "hu": "Projektmenedzser, londoni ügynökség", "pl": "Project manager, agencja w Londynie" }
+      },
+      {
+        "quote": {
+          "en": "Our website finally reads like it was written by a native — because it was. Bookings from the UK doubled.",
+          "hu": "A weboldalunk végre úgy szól, mintha anyanyelvi írta volna — mert úgy is volt. A brit foglalásaink megduplázódtak.",
+          "pl": "Nasza strona w końcu brzmi, jakby napisał ją native speaker — bo tak właśnie było. Rezerwacje z Wielkiej Brytanii się podwoiły.",
+          "_filler": true
+        },
+        "author": "Máté H.",
+        "role": { "en": "Guesthouse owner, Eger", "hu": "Panziótulajdonos, Eger", "pl": "Właściciel pensjonatu, Eger" }
+      },
+      {
+        "quote": {
+          "en": "My daughter went from zero to playing her first recital in a year — and she looks forward to every lesson.",
+          "hu": "A lányom egy év alatt jutott el a nulláról az első fellépéséig — és minden órát alig vár.",
+          "pl": "Moja córka w rok przeszła od zera do pierwszego występu — i nie może się doczekać każdej lekcji.",
+          "_filler": true
+        },
+        "author": "Emma T.",
+        "role": { "en": "Parent of a piano student", "hu": "Zongoratanuló szülője", "pl": "Mama uczennicy pianina" }
+      }
+    ]
+  },
+  "contact": {
+    "heading": { "en": "Let's talk", "hu": "Beszéljünk", "pl": "Porozmawiajmy" },
+    "note": {
+      "en": "Tell me what you need — a quote, a trial lesson, or just a question. I usually reply within 24 hours, in English, Hungarian or Polish.",
+      "hu": "Írd meg, mire van szükséged — árajánlat, próbaóra vagy csak egy kérdés. Általában 24 órán belül válaszolok, angolul, magyarul vagy lengyelül.",
+      "pl": "Napisz, czego potrzebujesz — wyceny, lekcji próbnej czy po prostu masz pytanie. Zwykle odpowiadam w ciągu 24 godzin, po angielsku, węgiersku lub polsku."
+    },
+    "email": "hello@norbert-example.com",
+    "phone": "+48 600 000 000",
+    "location": { "en": "Kraków, Poland", "hu": "Krakkó, Lengyelország", "pl": "Kraków, Polska" },
+    "form": {
+      "name": { "en": "Your name", "hu": "Neved", "pl": "Twoje imię" },
+      "email": { "en": "Email address", "hu": "E-mail cím", "pl": "Adres e-mail" },
+      "service": { "en": "What do you need?", "hu": "Mire van szükséged?", "pl": "Czego potrzebujesz?" },
+      "subjectOptions": [
+        { "value": "translation", "label": { "en": "Translation", "hu": "Fordítás", "pl": "Tłumaczenie" } },
+        { "value": "music", "label": { "en": "Music lessons", "hu": "Zeneórák", "pl": "Lekcje muzyki" } },
+        { "value": "other", "label": { "en": "Something else", "hu": "Valami más", "pl": "Coś innego" } }
+      ],
+      "message": { "en": "Your message", "hu": "Üzeneted", "pl": "Twoja wiadomość" },
+      "messagePlaceholder": {
+        "en": "A few sentences about your project or what you'd like to learn…",
+        "hu": "Pár mondat a projektedről vagy arról, mit szeretnél tanulni…",
+        "pl": "Kilka zdań o Twoim projekcie lub o tym, czego chcesz się nauczyć…"
+      },
+      "submit": { "en": "Send message", "hu": "Üzenet küldése", "pl": "Wyślij wiadomość" },
+      "directLine": { "en": "or email me directly:", "hu": "vagy írj közvetlenül:", "pl": "albo napisz bezpośrednio:" }
+    }
+  },
+  "footer": {
+    "line": {
+      "en": "Hungarian–English translation & music lessons · Kraków / online",
+      "hu": "Magyar–angol fordítás és zeneórák · Krakkó / online",
+      "pl": "Tłumaczenia węgiersko-angielskie i lekcje muzyki · Kraków / online"
+    },
+    "langNote": { "en": "This site speaks English, Hungarian and Polish — use the switch above.", "hu": "Ez az oldal angolul, magyarul és lengyelül is beszél — használd a fenti kapcsolót.", "pl": "Ta strona mówi po angielsku, węgiersku i polsku — użyj przełącznika u góry." }
+  }
+}

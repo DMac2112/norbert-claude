@@ -1,0 +1,36 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const t = site.translation;
+const icons = ['📈', '📄', '🖥️', '🎬'];
+---
+<section id="translation">
+  <div class="wrap reveal">
+    <h2><T t={t.heading} /></h2>
+    <p style="max-width:64ch"><T t={t.intro} /></p>
+
+    <div class="cards">
+      {t.services.map((s, i) => (
+        <div class="card">
+          <div class="icon" aria-hidden="true">{icons[i]}</div>
+          <h3><T t={s.title} /></h3>
+          <p><T t={s.desc} /></p>
+        </div>
+      ))}
+    </div>
+
+    <h3 style="margin-top:40px"><T t={t.stepsHeading} /></h3>
+    <div class="steps">
+      {t.steps.map((s) => (
+        <div class="step">
+          <h3><T t={s.title} /></h3>
+          <p><T t={s.desc} /></p>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-cta">
+      <a class="btn btn-primary" href="#contact" data-subject="translation"><T t={t.cta} /></a>
+    </div>
+  </div>
+</section>

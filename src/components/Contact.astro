@@ -1,0 +1,70 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const c = site.contact;
+const f = c.form;
+---
+<section id="contact" class="band">
+  <div class="wrap reveal">
+    <h2><T t={c.heading} /></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><T t={c.note} /></p>
+        <p class="contact-direct">
+          <T t={f.directLine} />
+          <br />
+          <a href={`mailto:${c.email}`}>{c.email}</a>
+          <br />
+          <span>{c.phone}</span> · <T t={c.location} />
+        </p>
+      </div>
+
+      <!-- Netlify Forms when deployed there; mailto link above is the no-service fallback -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="honeypot" aria-hidden="true">
+          <label>Company <input name="company" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <div class="field">
+          <label for="name"><T t={f.name} /></label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="email"><T t={f.email} /></label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="service"><T t={f.service} /></label>
+          <select id="service" name="service">
+            {f.subjectOptions.map((o) => (
+              <option
+                value={o.value}
+                data-t-en={o.label.en}
+                data-t-hu={o.label.hu}
+                data-t-pl={o.label.pl}
+              >{o.label.en}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message"><T t={f.message} /></label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder={f.messagePlaceholder.en}
+            data-ph-en={f.messagePlaceholder.en}
+            data-ph-hu={f.messagePlaceholder.hu}
+            data-ph-pl={f.messagePlaceholder.pl}
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit"><T t={f.submit} /></button>
+      </form>
+    </div>
+  </div>
+</section>

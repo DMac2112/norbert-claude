@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import site from '../content/site.json';
+const meta = site.meta;
+---
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title.en}</title>
+    <meta name="description" content={meta.description.en} />
+    <meta property="og:title" content={meta.title.en} />
+    <meta property="og:description" content={meta.description.en} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <!-- Restore saved language BEFORE paint (no flash of wrong language) -->
+    <script is:inline>
+      (function () {
+        try {
+          var l = localStorage.getItem('nb.lang');
+          if (l === 'hu' || l === 'pl' || l === 'en') {
+            document.documentElement.lang = l;
+            document.documentElement.dataset.lang = l;
+          }
+        } catch (e) { /* stateless is fine */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    <!-- Master language switch + small interactions. The only client JS on the site. -->
+    <script is:inline define:vars={{ META: meta }}>
+      var LANGS = ['en', 'hu', 'pl'];
+
+      function applyLang(l) {
+        var root = document.documentElement;
+        root.lang = l;
+        root.dataset.lang = l;
+        document.title = META.title[l];
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', META.description[l]);
+        // attribute-carried strings (placeholders, option labels, aria-labels)
+        document.querySelectorAll('[data-ph-en]').forEach(function (el) {
+          el.setAttribute('placeholder', el.getAttribute('data-ph-' + l) || '');
+        });
+        document.querySelectorAll('[data-t-en]').forEach(function (el) {
+          el.textContent = el.getAttribute('data-t-' + l) || '';
+        });
+        document.querySelectorAll('[data-al-en]').forEach(function (el) {
+          el.setAttribute('aria-label', el.getAttribute('data-al-' + l) || '');
+        });
+        var btn = document.getElementById('lang-switch');
+        if (btn) btn.querySelector('b').textContent = l.toUpperCase();
+        try { localStorage.setItem('nb.lang', l); } catch (e) { /* fine */ }
+      }
+
+      // master switch: EN → HU → PL → EN, always visible in the sticky header
+      var switchBtn = document.getElementById('lang-switch');
+      if (switchBtn) {
+        switchBtn.addEventListener('click', function () {
+          var cur = document.documentElement.dataset.lang || 'en';
+          var next = LANGS[(LANGS.indexOf(cur) + 1) % LANGS.length];
+          applyLang(next);
+        });
+      }
+      applyLang(document.documentElement.dataset.lang || 'en'); // sync attrs w/ stored lang
+
+      // mobile menu
+      var burger = document.getElementById('menu-btn');
+      var nav = document.getElementById('site-nav');
+      if (burger && nav) {
+        burger.addEventListener('click', function () {
+          var open = nav.classList.toggle('is-open');
+          burger.setAttribute('aria-expanded', String(open));
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.closest('a')) { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
+        });
+      }
+
+      // CTA → contact with the service dropdown prefilled
+      document.querySelectorAll('[data-subject]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var sel = document.getElementById('service');
+          if (sel) sel.value = el.getAttribute('data-subject');
+        });
+      });
+
+      // scroll-reveal (respects reduced motion)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    </script>
+  </body>
+</html>

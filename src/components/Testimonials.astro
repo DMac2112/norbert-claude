@@ -1,0 +1,18 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const t = site.testimonials;
+---
+<section id="testimonials">
+  <div class="wrap reveal">
+    <h2><T t={t.heading} /></h2>
+    <div class="quotes">
+      {t.items.map((q) => (
+        <figure class="quote">
+          <blockquote><T t={q.quote} /></blockquote>
+          <figcaption><b>{q.author}</b> — <T t={q.role} /></figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

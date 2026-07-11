@@ -1,0 +1,12 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© {year} {site.brand.name} · <T t={site.footer.line} /></span>
+    <span class="muted"><T t={site.footer.langNote} /></span>
+    <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+  </div>
+</footer>

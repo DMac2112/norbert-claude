@@ -1,0 +1,26 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const a = site.about;
+---
+<section id="about" class="band">
+  <div class="wrap reveal">
+    <h2><T t={a.heading} /></h2>
+    <div class="about-grid">
+      <div>
+        {a.body.map((p) => <p><T t={p} /></p>)}
+        <ul class="chips">
+          {a.chips.map((c) => <li><T t={c} /></li>)}
+        </ul>
+      </div>
+      <dl class="fact-card">
+        <dt><T t={{ en: 'Languages', hu: 'Nyelvek', pl: 'Języki' }} /></dt>
+        <dd><T t={{ en: 'Hungarian (native) · English (fluent) · Polish (learning)', hu: 'magyar (anyanyelv) · angol (folyékony) · lengyel (tanulom)', pl: 'węgierski (ojczysty) · angielski (biegły) · polski (uczę się)' }} /></dd>
+        <dt><T t={{ en: 'Experience', hu: 'Tapasztalat', pl: 'Doświadczenie' }} /></dt>
+        <dd><T t={{ en: '8 years translating in the UK · 10+ years teaching music', hu: '8 év fordítás az Egyesült Királyságban · 10+ év zenetanítás', pl: '8 lat tłumaczeń w Wielkiej Brytanii · ponad 10 lat nauczania muzyki' }} /></dd>
+        <dt><T t={{ en: 'Now', hu: 'Jelenleg', pl: 'Obecnie' }} /></dt>
+        <dd><T t={{ en: 'Kraków, Poland — in person & online', hu: 'Krakkó, Lengyelország — személyesen és online', pl: 'Kraków — stacjonarnie i online' }} /></dd>
+      </dl>
+    </div>
+  </div>
+</section>

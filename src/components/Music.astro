@@ -1,0 +1,28 @@
+---
+import site from '../content/site.json';
+import T from './T.astro';
+const m = site.music;
+const icons = ['🎹', '🎸', '🎵'];
+---
+<section id="music" class="band music">
+  <div class="wrap reveal">
+    <h2><T t={m.heading} /></h2>
+    <p style="max-width:64ch"><T t={m.intro} /></p>
+
+    <div class="cards">
+      {m.points.map((p, i) => (
+        <div class="card">
+          <div class="icon" aria-hidden="true">{icons[i]}</div>
+          <h3><T t={p.title} /></h3>
+          <p><T t={p.desc} /></p>
+        </div>
+      ))}
+    </div>
+
+    <p class="price-line"><T t={m.priceLine} /></p>
+
+    <div class="section-cta">
+      <a class="btn btn-amber" href="#contact" data-subject="music"><T t={m.cta} /></a>
+    </div>
+  </div>
+</section>

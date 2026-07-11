@@ -1,0 +1,17 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# env
+.env
+.env.*
+!.env.example
+
+# editor/OS
+.DS_Store
+Thumbs.db
+
+# portable node toolchain artifacts (npm20.cmd wrapper is kept, tool dir is not)

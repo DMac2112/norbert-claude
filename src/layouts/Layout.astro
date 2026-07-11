@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
-import '../styles/theme-editorial.css';
+import '../styles/fonts.css';
+import '../styles/theme-literary.css';
+import '../styles/theme-manuscript.css';
+import '../styles/theme-warm.css';
 import site from '../content/site.json';
 const meta = site.meta;
 ---
@@ -27,17 +30,17 @@ const meta = site.meta;
         } catch (e) { /* stateless is fine */ }
       })();
     </script>
-    <!-- Restore saved visual theme BEFORE paint (no flash of wrong theme) -->
+    <!-- Restore saved visual theme BEFORE paint (no flash of wrong theme). Default = literary. -->
     <script is:inline>
       (function () {
-        try {
-          var t = localStorage.getItem('nb.theme');
-          if (t === 'editorial') {
-            document.documentElement.dataset.theme = 'editorial';
-          }
-        } catch (e) { /* stateless is fine */ }
+        var THEMES = ['literary', 'manuscript', 'warm'];
+        var t;
+        try { t = localStorage.getItem('nb.theme'); } catch (e) { /* stateless is fine */ }
+        document.documentElement.dataset.theme = (THEMES.indexOf(t) >= 0) ? t : 'literary';
       })();
     </script>
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href={`${import.meta.env.BASE_URL}fonts/fraunces-latin-normal-300-900.woff2`} />
   </head>
   <body>
     <slot />
@@ -78,23 +81,27 @@ const meta = site.meta;
       }
       applyLang(document.documentElement.dataset.lang || 'en'); // sync attrs w/ stored lang
 
+      var THEMES = ['literary', 'manuscript', 'warm'];
+      var THEME_LABELS = { literary: 'Literary', manuscript: 'Manuscript', warm: 'Warm' };
+
       function applyTheme(name) {
-        var root = document.documentElement;
-        if (name === 'editorial') { root.dataset.theme = 'editorial'; } else { delete root.dataset.theme; }
+        if (THEMES.indexOf(name) < 0) name = 'literary';
+        document.documentElement.dataset.theme = name;
         var btn = document.getElementById('theme-switch');
-        if (btn) btn.setAttribute('aria-pressed', name === 'editorial' ? 'true' : 'false');
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = THEME_LABELS[name]; }
         try { localStorage.setItem('nb.theme', name); } catch (e) { /* fine */ }
       }
 
-      // visual-theme switch: default ↔ editorial, always visible in the sticky header
+      // style switch: cycles Literary → Manuscript → Warm, always visible in the sticky header
       var themeBtn = document.getElementById('theme-switch');
       if (themeBtn) {
         themeBtn.addEventListener('click', function () {
-          var cur = document.documentElement.dataset.theme === 'editorial' ? 'editorial' : 'default';
-          applyTheme(cur === 'editorial' ? 'default' : 'editorial');
+          var cur = document.documentElement.dataset.theme || 'literary';
+          var i = THEMES.indexOf(cur);
+          applyTheme(THEMES[(i < 0 ? 0 : (i + 1) % THEMES.length)]);
         });
       }
-      applyTheme(document.documentElement.dataset.theme === 'editorial' ? 'editorial' : 'default'); // sync attrs w/ stored theme
+      applyTheme(document.documentElement.dataset.theme || 'literary'); // sync button label w/ restored theme
 
       // mobile menu
       var burger = document.getElementById('menu-btn');

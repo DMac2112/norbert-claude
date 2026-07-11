@@ -1,0 +1,156 @@
+/* ============================================================
+   THEME · MANUSCRIPT  ("The Editor's Desk")
+   Bricolage Grotesque display + Fraunces reading serif (the text
+   being worked on) + IBM Plex Mono for the editor's marks, labels
+   and metadata. Red-pen accent, hard edges, faint ruled paper,
+   wavy "correction" underlines, a bilingual source⇄target overline.
+   Everything scoped under html[data-theme="manuscript"].
+   ============================================================ */
+
+html[data-theme="manuscript"] {
+  --bg: #f4f1e9;
+  --bg-band: #e8e1d3;
+  --ink: #17130f;
+  --ink-soft: #4c453e;
+  --teal: #2b4a54;          /* editor's ink-blue */
+  --teal-deep: #182f37;
+  --teal-tint: #dde6e8;
+  --amber: #c5391f;         /* proofreader's red */
+  --amber-tint: #f2d9d1;
+  --card: #faf6ef;
+  --line: rgba(23, 19, 15, 0.18);
+  --radius: 0px;
+  --shadow: none;
+  --font-head: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+}
+
+/* body: reading serif on faint ruled paper */
+html[data-theme="manuscript"] body {
+  font-optical-sizing: auto; font-weight: 400;
+  font-feature-settings: 'liga' 1;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 33px, rgba(23,19,15,0.045) 33px 34px);
+}
+html[data-theme="manuscript"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+}
+html[data-theme="manuscript"] ::selection { background: var(--amber); color: #fff; }
+
+/* display headings: heavy grotesque, tight; wavy red "correction" underline on section titles */
+html[data-theme="manuscript"] h1 {
+  font-size: clamp(2.6rem, 6.2vw, 4.9rem);
+  font-variation-settings: 'opsz' 96, 'wght' 720; letter-spacing: -0.028em; line-height: 0.98;
+}
+html[data-theme="manuscript"] h2 {
+  font-size: clamp(1.85rem, 3.9vw, 2.9rem);
+  font-variation-settings: 'opsz' 48, 'wght' 680; letter-spacing: -0.02em; line-height: 1.06;
+  text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--amber);
+  text-decoration-thickness: 1.2px; text-underline-offset: 9px;
+}
+html[data-theme="manuscript"] h3 { font-variation-settings: 'wght' 640; letter-spacing: -0.01em; }
+html[data-theme="manuscript"] .hero-sub { font-family: var(--font-body); font-size: 1.14rem; }
+
+/* mono labels + slashed section numbers */
+html[data-theme="manuscript"] main { counter-reset: sec; }
+html[data-theme="manuscript"] .kicker {
+  font-family: var(--font-mono); font-weight: 500; color: var(--amber);
+  letter-spacing: 0.12em; font-size: 0.72rem;
+}
+html[data-theme="manuscript"] #about h2::before,
+html[data-theme="manuscript"] #translation h2::before,
+html[data-theme="manuscript"] #music h2::before,
+html[data-theme="manuscript"] #testimonials h2::before,
+html[data-theme="manuscript"] #contact h2::before {
+  counter-increment: sec; content: counter(sec, decimal-leading-zero) " / ";
+  display: block; margin-bottom: 12px;
+  font-family: var(--font-mono); font-weight: 500; font-size: 0.72rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber);
+}
+
+/* bilingual source ⇄ target overline in the hero — the concept made visible */
+html[data-theme="manuscript"] .hero .wrap > div:first-child::before {
+  content: "FORDÍTÁS \2194 TRANSLATION   ·   ZENE \2194 MUSIC";
+  display: block; margin-bottom: 18px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.16em; color: var(--ink-soft);
+}
+
+/* header / nav / brand */
+html[data-theme="manuscript"] .site-header { background: rgba(244, 241, 233, 0.92); border-bottom-color: var(--ink); }
+html[data-theme="manuscript"] .brand { font-family: var(--font-head); font-variation-settings: 'wght' 700; }
+html[data-theme="manuscript"] .brand-mark { border-radius: 0; background: var(--ink); font-family: var(--font-mono); }
+html[data-theme="manuscript"] .brand-acute { color: var(--amber); font-size: 1.35em; margin-top: -0.1em; }
+html[data-theme="manuscript"] .site-nav a { font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 0; padding: 8px 4px; margin: 0 8px; position: relative; }
+html[data-theme="manuscript"] .site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 3px; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: right; transition: transform 0.22s ease; }
+html[data-theme="manuscript"] .site-nav a:hover { background: transparent; color: var(--ink); }
+html[data-theme="manuscript"] .site-nav a:hover::after,
+html[data-theme="manuscript"] .site-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+/* switches: hard-edged, mono */
+html[data-theme="manuscript"] .lang-switch,
+html[data-theme="manuscript"] .theme-switch {
+  border-color: var(--ink); color: var(--ink); background: var(--card);
+  border-radius: 0; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.76rem;
+}
+html[data-theme="manuscript"] .lang-switch svg,
+html[data-theme="manuscript"] .theme-switch svg { color: var(--amber); }
+html[data-theme="manuscript"] .lang-switch:hover,
+html[data-theme="manuscript"] .theme-switch:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
+html[data-theme="manuscript"] .lang-switch:hover svg,
+html[data-theme="manuscript"] .theme-switch:hover svg { color: #fff; }
+
+/* hero portrait: pinned index card */
+html[data-theme="manuscript"] .portrait {
+  aspect-ratio: 4 / 5; max-width: 330px; border-radius: 0;
+  background: var(--card); border: 1px solid var(--ink); box-shadow: 7px 7px 0 var(--line);
+  color: var(--ink); overflow: visible;
+}
+html[data-theme="manuscript"] .portrait span { font-family: var(--font-head); font-variation-settings: 'wght' 700; }
+html[data-theme="manuscript"] .portrait::after {
+  content: "HU \2194 EN"; position: absolute; left: 0; right: 0; bottom: 12px;
+  text-align: center; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.18em;
+  color: var(--ink-soft); opacity: 1;
+}
+html[data-theme="manuscript"] .portrait::before {
+  content: ""; position: absolute; top: -1px; left: -1px; width: 22px; height: 22px;
+  border-top: 4px solid var(--amber); border-left: 4px solid var(--amber);
+}
+
+/* buttons: hard rectangles, mono caps */
+html[data-theme="manuscript"] .btn {
+  border-radius: 0; font-family: var(--font-mono); text-transform: uppercase;
+  letter-spacing: 0.07em; font-size: 0.8rem; font-weight: 500;
+}
+html[data-theme="manuscript"] .btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
+html[data-theme="manuscript"] .btn-primary { background: var(--teal-deep); }
+html[data-theme="manuscript"] .btn-amber { background: transparent; color: var(--amber); border-color: var(--amber); }
+html[data-theme="manuscript"] .btn-amber:hover { background: var(--amber); color: #fff; box-shadow: 3px 3px 0 var(--ink); }
+html[data-theme="manuscript"] .btn-ghost { color: var(--ink); border-color: var(--ink); }
+
+/* cards / steps / chips / quotes — flat, ruled */
+html[data-theme="manuscript"] .card,
+html[data-theme="manuscript"] .step,
+html[data-theme="manuscript"] .fact-card,
+html[data-theme="manuscript"] .contact-form { border-radius: 0; box-shadow: none; border-color: var(--line); }
+html[data-theme="manuscript"] .card .icon { border-radius: 0; }
+html[data-theme="manuscript"] .step::before { border-radius: 0; font-family: var(--font-mono); background: var(--ink); }
+html[data-theme="manuscript"] .fact-card dt { font-family: var(--font-mono); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em; }
+html[data-theme="manuscript"] .chips li { border-radius: 0; background: transparent; border: 1px solid var(--line); color: var(--ink); font-family: var(--font-mono); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.04em; }
+html[data-theme="manuscript"] .quote { border-radius: 0; box-shadow: none; border-left: 3px solid var(--amber); }
+html[data-theme="manuscript"] .quote blockquote { font-family: var(--font-body); font-style: italic; }
+html[data-theme="manuscript"] .quote blockquote::before { color: var(--amber); }
+html[data-theme="manuscript"] .quote figcaption { font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+html[data-theme="manuscript"] .price-line { border-style: dashed; border-color: var(--amber); border-radius: 0; font-family: var(--font-mono); }
+
+/* form + footer */
+html[data-theme="manuscript"] .field label { font-family: var(--font-mono); text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.06em; }
+html[data-theme="manuscript"] .field input,
+html[data-theme="manuscript"] .field select,
+html[data-theme="manuscript"] .field textarea { border-radius: 0; }
+html[data-theme="manuscript"] .site-footer { background: var(--ink); color: #cfc7bd; }
+html[data-theme="manuscript"] .site-footer a { color: #fff; }
+html[data-theme="manuscript"] .site-footer .wrap { font-family: var(--font-mono); font-size: 0.8rem; }

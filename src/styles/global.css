@@ -68,6 +68,9 @@ section { padding: 72px 0; }
   display: grid; place-items: center;
   font: 700 .8rem var(--font-body); letter-spacing: .02em;
 }
+/* wordmark + the Hungarian double-acute (˝) used as a recurring brand mark */
+.brand-name { display: inline-flex; align-items: flex-start; }
+.brand-acute { font-style: normal; color: var(--amber); margin-left: 1px; line-height: 1; }
 .site-nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 4px; }
 .site-nav a { padding: 8px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: .95rem; white-space: nowrap; }
 .site-nav a:hover { background: var(--teal-tint); color: var(--teal-deep); }

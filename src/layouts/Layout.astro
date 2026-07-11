@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/theme-editorial.css';
 import site from '../content/site.json';
 const meta = site.meta;
 ---
@@ -22,6 +23,17 @@ const meta = site.meta;
           if (l === 'hu' || l === 'pl' || l === 'en') {
             document.documentElement.lang = l;
             document.documentElement.dataset.lang = l;
+          }
+        } catch (e) { /* stateless is fine */ }
+      })();
+    </script>
+    <!-- Restore saved visual theme BEFORE paint (no flash of wrong theme) -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('nb.theme');
+          if (t === 'editorial') {
+            document.documentElement.dataset.theme = 'editorial';
           }
         } catch (e) { /* stateless is fine */ }
       })();
@@ -65,6 +77,24 @@ const meta = site.meta;
         });
       }
       applyLang(document.documentElement.dataset.lang || 'en'); // sync attrs w/ stored lang
+
+      function applyTheme(name) {
+        var root = document.documentElement;
+        if (name === 'editorial') { root.dataset.theme = 'editorial'; } else { delete root.dataset.theme; }
+        var btn = document.getElementById('theme-switch');
+        if (btn) btn.setAttribute('aria-pressed', name === 'editorial' ? 'true' : 'false');
+        try { localStorage.setItem('nb.theme', name); } catch (e) { /* fine */ }
+      }
+
+      // visual-theme switch: default ↔ editorial, always visible in the sticky header
+      var themeBtn = document.getElementById('theme-switch');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var cur = document.documentElement.dataset.theme === 'editorial' ? 'editorial' : 'default';
+          applyTheme(cur === 'editorial' ? 'default' : 'editorial');
+        });
+      }
+      applyTheme(document.documentElement.dataset.theme === 'editorial' ? 'editorial' : 'default'); // sync attrs w/ stored theme
 
       // mobile menu
       var burger = document.getElementById('menu-btn');

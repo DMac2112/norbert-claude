@@ -30,5 +30,16 @@ import T from './T.astro';
       </svg>
       <b>EN</b>
     </button>
+
+    <!-- Visual-theme switch — always on screen (sticky header): default ↔ editorial -->
+    <button id="theme-switch" class="theme-switch" type="button" aria-pressed="false"
+      data-al-en="Toggle studio style" data-al-hu="Stúdió stílus be- és kikapcsolása" data-al-pl="Przełącz styl studyjny"
+      aria-label="Toggle studio style">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="theme-switch__icon">
+        <circle cx="9" cy="9" r="6" />
+        <circle cx="15" cy="15" r="6" />
+      </svg>
+      <b>Style</b>
+    </button>
   </div>
 </header>

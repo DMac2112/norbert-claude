@@ -226,3 +226,28 @@ section { padding: 72px 0; }
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 .skip-link { position: absolute; left: -9999px; top: 0; background: var(--teal); color: #fff; padding: 10px 16px; z-index: 100; }
 .skip-link:focus { left: 8px; top: 8px; }
+
+/* ---------------- theme switch (base / default theme) ----------------
+   Sits next to .lang-switch in the header; toggles the alternate "editorial"
+   skin (see theme-editorial.css). Styled here so it looks correct even when
+   no alternate theme is active. */
+.theme-switch {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px;
+  border: 1.5px solid var(--teal); border-radius: 999px;
+  background: var(--card); color: var(--teal-deep);
+  font: 600 .88rem var(--font-body); letter-spacing: .04em;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+  margin-left: 8px;
+}
+.theme-switch:hover { background: var(--teal-tint); }
+.theme-switch__icon { width: 15px; height: 15px; }
+.theme-switch[aria-pressed="true"] {
+  background: var(--teal); color: #fff; border-color: var(--teal);
+}
+.theme-switch[aria-pressed="true"]:hover { background: var(--teal-deep); }
+
+@media (max-width: 760px) {
+  .site-header .theme-switch { margin-left: 8px; }
+}

@@ -6,18 +6,9 @@
    Everything scoped under html[data-theme="literary"].
    ============================================================ */
 
+/* colours come from the active palette (see palettes.css); this file owns
+   only type, shape and editorial furniture. */
 html[data-theme="literary"] {
-  --bg: #f6f2ea;
-  --bg-band: #ece4d6;
-  --ink: #1c1a16;
-  --ink-soft: #57514a;
-  --teal: #2a524e;          /* muted editorial green */
-  --teal-deep: #1b3a37;
-  --teal-tint: #e2e9e4;
-  --amber: #b0442b;         /* terracotta accent */
-  --amber-tint: #f0e0d6;
-  --card: #fbf8f2;
-  --line: rgba(28, 26, 22, 0.14);
   --radius: 3px;
   --shadow: none;
   --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -95,14 +86,16 @@ html[data-theme="literary"] .site-nav a:focus-visible::after { transform: scaleX
 
 /* --- lang + style switches --- */
 html[data-theme="literary"] .lang-switch,
-html[data-theme="literary"] .theme-switch {
+html[data-theme="literary"] .theme-switch,
+html[data-theme="literary"] .palette-switch {
   border-color: var(--teal); color: var(--ink); background: var(--card);
   border-radius: 999px; font-family: var(--font-body); font-weight: 600;
 }
 html[data-theme="literary"] .lang-switch svg,
 html[data-theme="literary"] .theme-switch svg { color: var(--amber); }
 html[data-theme="literary"] .lang-switch:hover,
-html[data-theme="literary"] .theme-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
+html[data-theme="literary"] .theme-switch:hover,
+html[data-theme="literary"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
 
 /* --- hero portrait: editorial framed rectangle --- */
 html[data-theme="literary"] .portrait {

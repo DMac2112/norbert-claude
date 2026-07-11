@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/fonts.css';
+import '../styles/palettes.css';
 import '../styles/theme-literary.css';
 import '../styles/theme-manuscript.css';
 import '../styles/theme-warm.css';
@@ -30,13 +31,16 @@ const meta = site.meta;
         } catch (e) { /* stateless is fine */ }
       })();
     </script>
-    <!-- Restore saved visual theme BEFORE paint (no flash of wrong theme). Default = literary. -->
+    <!-- Restore saved style + palette BEFORE paint (no flash). Defaults: literary / warm. -->
     <script is:inline>
       (function () {
         var THEMES = ['literary', 'manuscript', 'warm'];
-        var t;
-        try { t = localStorage.getItem('nb.theme'); } catch (e) { /* stateless is fine */ }
-        document.documentElement.dataset.theme = (THEMES.indexOf(t) >= 0) ? t : 'literary';
+        var PALETTES = ['warm', 'cool', 'bold'];
+        var t, p;
+        try { t = localStorage.getItem('nb.theme'); p = localStorage.getItem('nb.palette'); } catch (e) { /* stateless is fine */ }
+        var el = document.documentElement;
+        el.dataset.theme = (THEMES.indexOf(t) >= 0) ? t : 'literary';
+        el.dataset.palette = (PALETTES.indexOf(p) >= 0) ? p : 'warm';
       })();
     </script>
     <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -102,6 +106,28 @@ const meta = site.meta;
         });
       }
       applyTheme(document.documentElement.dataset.theme || 'literary'); // sync button label w/ restored theme
+
+      var PALETTES = ['warm', 'cool', 'bold'];
+      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold' };
+
+      function applyPalette(name) {
+        if (PALETTES.indexOf(name) < 0) name = 'warm';
+        document.documentElement.dataset.palette = name;
+        var btn = document.getElementById('palette-switch');
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = PALETTE_LABELS[name]; }
+        try { localStorage.setItem('nb.palette', name); } catch (e) { /* fine */ }
+      }
+
+      // colour switch: cycles Warm → Cool → Bold, independent of the style
+      var paletteBtn = document.getElementById('palette-switch');
+      if (paletteBtn) {
+        paletteBtn.addEventListener('click', function () {
+          var cur = document.documentElement.dataset.palette || 'warm';
+          var pi = PALETTES.indexOf(cur);
+          applyPalette(PALETTES[(pi < 0 ? 0 : (pi + 1) % PALETTES.length)]);
+        });
+      }
+      applyPalette(document.documentElement.dataset.palette || 'warm'); // sync button label w/ restored palette
 
       // mobile menu
       var burger = document.getElementById('menu-btn');

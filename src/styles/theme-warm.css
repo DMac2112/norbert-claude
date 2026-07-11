@@ -7,18 +7,9 @@
    Everything scoped under html[data-theme="warm"].
    ============================================================ */
 
+/* colours come from the active palette (see palettes.css); this file owns
+   only type, shape and studio warmth. */
 html[data-theme="warm"] {
-  --bg: #f8f2e8;
-  --bg-band: #f1e6d3;
-  --ink: #2a2320;
-  --ink-soft: #6c5d51;
-  --teal: #2f7d72;          /* warm teal-green */
-  --teal-deep: #205a52;
-  --teal-tint: #dcece6;
-  --amber: #d98a3d;         /* honey */
-  --amber-tint: #f8ead0;
-  --card: #fffdf8;
-  --line: #e7dcc9;
   --radius: 16px;
   --shadow: 0 6px 20px rgba(42, 35, 32, 0.08), 0 2px 6px rgba(42, 35, 32, 0.05);
   --font-head: 'Fraunces', Georgia, serif;
@@ -29,8 +20,8 @@ html[data-theme="warm"] {
 html[data-theme="warm"] body {
   font-weight: 400; letter-spacing: -0.001em;
   background:
-    radial-gradient(58rem 40rem at 86% -6%, rgba(217, 138, 61, 0.12), transparent 60%),
-    radial-gradient(46rem 34rem at -8% 8%, rgba(47, 125, 114, 0.08), transparent 62%),
+    radial-gradient(58rem 40rem at 86% -6%, color-mix(in srgb, var(--amber) 15%, transparent), transparent 60%),
+    radial-gradient(46rem 34rem at -8% 8%, color-mix(in srgb, var(--teal) 11%, transparent), transparent 62%),
     var(--bg);
 }
 html[data-theme="warm"] body::before {
@@ -38,7 +29,7 @@ html[data-theme="warm"] body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 170px 170px;
 }
-html[data-theme="warm"] ::selection { background: var(--amber); color: #3a2a12; }
+html[data-theme="warm"] ::selection { background: var(--amber); color: #fff; }
 
 /* soft warm ring cursor over interactive elements */
 html[data-theme="warm"] a,
@@ -73,25 +64,27 @@ html[data-theme="warm"] .kicker::before { content: "\25CF\00a0\00a0"; color: var
 
 /* header / nav / brand */
 html[data-theme="warm"] .site-header { background: rgba(248, 242, 232, 0.86); }
-html[data-theme="warm"] .brand-mark { background: radial-gradient(circle at 30% 25%, #3a9c8f, var(--teal-deep)); font-family: var(--font-head); }
+html[data-theme="warm"] .brand-mark { background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--teal) 82%, #fff), var(--teal-deep)); font-family: var(--font-head); }
 html[data-theme="warm"] .brand-acute { color: var(--amber); font-size: 1.3em; margin-top: -0.12em; }
 html[data-theme="warm"] .site-nav a { border-radius: 999px; }
 html[data-theme="warm"] .site-nav a:hover { background: var(--amber-tint); color: var(--teal-deep); }
 
 /* switches: rounded, warm */
 html[data-theme="warm"] .lang-switch,
-html[data-theme="warm"] .theme-switch {
+html[data-theme="warm"] .theme-switch,
+html[data-theme="warm"] .palette-switch {
   border-color: var(--teal); color: var(--teal-deep); background: var(--card); border-radius: 999px;
 }
 html[data-theme="warm"] .lang-switch svg,
 html[data-theme="warm"] .theme-switch svg { color: var(--amber); }
 html[data-theme="warm"] .lang-switch:hover,
-html[data-theme="warm"] .theme-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
+html[data-theme="warm"] .theme-switch:hover,
+html[data-theme="warm"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
 
 /* hero portrait: soft squircle with a hand-drawn ring */
 html[data-theme="warm"] .portrait {
   aspect-ratio: 1; max-width: 340px; border-radius: 30px;
-  background: radial-gradient(circle at 32% 26%, #3a9c8f, var(--teal-deep));
+  background: radial-gradient(circle at 32% 26%, color-mix(in srgb, var(--teal) 82%, #fff), var(--teal-deep));
   box-shadow: 0 14px 34px rgba(42, 35, 32, 0.16); overflow: visible; color: #fff;
 }
 html[data-theme="warm"] .portrait span { font-variation-settings: 'wght' 560, 'SOFT' 70; }
@@ -109,8 +102,8 @@ html[data-theme="warm"] .btn { border-radius: 999px; font-family: var(--font-bod
 html[data-theme="warm"] .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(42, 35, 32, 0.16); }
 html[data-theme="warm"] .btn-primary { background: var(--teal); }
 html[data-theme="warm"] .btn-primary:hover { background: var(--teal-deep); }
-html[data-theme="warm"] .btn-amber { background: var(--amber); color: #3a2a12; border-color: var(--amber); }
-html[data-theme="warm"] .btn-amber:hover { background: #c6772c; color: #fff; }
+html[data-theme="warm"] .btn-amber { background: var(--amber); color: #fff; border-color: var(--amber); }
+html[data-theme="warm"] .btn-amber:hover { background: var(--teal); color: #fff; }
 html[data-theme="warm"] .btn-ghost { color: var(--teal-deep); border-color: var(--teal); }
 
 /* cards / steps / chips / quotes — soft and rounded */

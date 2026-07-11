@@ -1,0 +1,52 @@
+/* ============================================================
+   PALETTES  — the colour axis, independent of the style axis.
+   Each palette defines the full token set the components read.
+   Any style (literary / manuscript / warm) can wear any palette,
+   so there are 3 styles x 3 palettes = 9 looks. Selected via
+   html[data-palette="…"], cycled by the header swatch button.
+   ============================================================ */
+
+/* 1 · WARM — cream paper, forest green, terracotta. The default. */
+html[data-palette="warm"] {
+  --bg: #f6f1e7;
+  --bg-band: #ece3d4;
+  --ink: #1c1a16;
+  --ink-soft: #57514a;
+  --teal: #2a524e;
+  --teal-deep: #1b3a37;
+  --teal-tint: #e2e9e4;
+  --amber: #b0442b;
+  --amber-tint: #f0e0d6;
+  --card: #fbf8f2;
+  --line: rgba(28, 26, 22, 0.14);
+}
+
+/* 2 · COOL — oat-grey paper, slate blue, warm ochre. Calm, cooler. */
+html[data-palette="cool"] {
+  --bg: #eceff0;
+  --bg-band: #dde3e5;
+  --ink: #171b1e;
+  --ink-soft: #4c545a;
+  --teal: #274a60;
+  --teal-deep: #16303f;
+  --teal-tint: #dbe6ea;
+  --amber: #b06a1f;
+  --amber-tint: #f0e2cc;
+  --card: #f7fafb;
+  --line: rgba(23, 27, 30, 0.14);
+}
+
+/* 3 · BOLD — bright bone, near-black ink primary, coral punch. Graphic. */
+html[data-palette="bold"] {
+  --bg: #f7f4ef;
+  --bg-band: #eae4d9;
+  --ink: #141210;
+  --ink-soft: #4a453e;
+  --teal: #1d1b18;
+  --teal-deep: #000000;
+  --teal-tint: #e6e2d9;
+  --amber: #dd4a2f;
+  --amber-tint: #f8dcd3;
+  --card: #fcfaf5;
+  --line: rgba(20, 18, 16, 0.16);
+}

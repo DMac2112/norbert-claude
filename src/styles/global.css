@@ -252,12 +252,29 @@ section { padding: 72px 0; }
 }
 .theme-switch:hover { background: var(--teal-tint); }
 .theme-switch__icon { width: 15px; height: 15px; }
-.theme-switch[aria-pressed="true"] {
-  background: var(--teal); color: #fff; border-color: var(--teal);
+
+/* colour switch — same pill; the swatch previews the active palette's two
+   key colours and updates automatically because it reads palette variables */
+.palette-switch {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px;
+  border: 1.5px solid var(--teal); border-radius: 999px;
+  background: var(--card); color: var(--teal-deep);
+  font: 600 .88rem var(--font-body); letter-spacing: .04em;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+  margin-left: 8px;
 }
-.theme-switch[aria-pressed="true"]:hover { background: var(--teal-deep); }
+.palette-switch:hover { background: var(--teal-tint); }
+.palette-swatch {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, var(--teal) 0 50%, var(--amber) 50% 100%);
+}
 
 @media (max-width: 760px) {
-  .site-header .theme-switch { margin-left: 0; padding: 6px 9px; }
-  .theme-switch b { display: none; }
+  .site-header .theme-switch,
+  .site-header .palette-switch { margin-left: 0; padding: 6px 9px; }
+  .theme-switch b,
+  .palette-switch b { display: none; }
 }

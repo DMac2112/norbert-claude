@@ -7,18 +7,9 @@
    Everything scoped under html[data-theme="manuscript"].
    ============================================================ */
 
+/* colours come from the active palette (see palettes.css); this file owns
+   only type, shape and editorial furniture. */
 html[data-theme="manuscript"] {
-  --bg: #f4f1e9;
-  --bg-band: #e8e1d3;
-  --ink: #17130f;
-  --ink-soft: #4c453e;
-  --teal: #2b4a54;          /* editor's ink-blue */
-  --teal-deep: #182f37;
-  --teal-tint: #dde6e8;
-  --amber: #c5391f;         /* proofreader's red */
-  --amber-tint: #f2d9d1;
-  --card: #faf6ef;
-  --line: rgba(23, 19, 15, 0.18);
   --radius: 0px;
   --shadow: none;
   --font-head: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
@@ -92,14 +83,17 @@ html[data-theme="manuscript"] .site-nav a:focus-visible::after { transform: scal
 
 /* switches: hard-edged, mono */
 html[data-theme="manuscript"] .lang-switch,
-html[data-theme="manuscript"] .theme-switch {
+html[data-theme="manuscript"] .theme-switch,
+html[data-theme="manuscript"] .palette-switch {
   border-color: var(--ink); color: var(--ink); background: var(--card);
   border-radius: 0; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.76rem;
 }
 html[data-theme="manuscript"] .lang-switch svg,
 html[data-theme="manuscript"] .theme-switch svg { color: var(--amber); }
+html[data-theme="manuscript"] .palette-switch .palette-swatch { border-radius: 0; }
 html[data-theme="manuscript"] .lang-switch:hover,
-html[data-theme="manuscript"] .theme-switch:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
+html[data-theme="manuscript"] .theme-switch:hover,
+html[data-theme="manuscript"] .palette-switch:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
 html[data-theme="manuscript"] .lang-switch:hover svg,
 html[data-theme="manuscript"] .theme-switch:hover svg { color: #fff; }
 

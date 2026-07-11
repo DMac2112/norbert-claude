@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 // Served from GitHub Pages as a project site: https://dmac2112.github.io/norbert-claude/
 export default defineConfig({
   site: 'https://dmac2112.github.io',
-  base: '/norbert-claude',
+  base: '/norbert-claude/',
 });

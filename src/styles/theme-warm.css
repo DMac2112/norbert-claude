@@ -37,7 +37,7 @@ html[data-theme="warm"] button,
 html[data-theme="warm"] .btn,
 html[data-theme="warm"] label,
 html[data-theme="warm"] summary {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='11' cy='11' r='7' fill='rgba(217,138,61,0.18)' stroke='%23d98a3d' stroke-width='2'/%3E%3C/svg%3E") 11 11, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='11' cy='11' r='7' fill='rgba(217,138,61,0.28)' stroke='%23a4561c' stroke-width='2'/%3E%3C/svg%3E") 11 11, pointer;
 }
 
 /* display headings: Fraunces Soft — rounded, friendly */

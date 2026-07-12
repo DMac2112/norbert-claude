@@ -20,7 +20,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -233,6 +233,8 @@ section { padding: 72px 0; }
 
 /* a11y */
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.site-footer :focus-visible { outline-color: #fff; }
+.skip-link:focus-visible { outline-color: var(--ink); }
 .skip-link { position: absolute; left: -9999px; top: 0; background: var(--teal); color: #fff; padding: 10px 16px; z-index: 100; }
 .skip-link:focus { left: 8px; top: 8px; }
 

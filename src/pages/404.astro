@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import T from '../components/T.astro';
+
+// Trilingual not-found page. GitHub Pages serves this as 404.html for the project site.
+const home = import.meta.env.BASE_URL;
+const heading = { en: 'Page not found', hu: 'Az oldal nem található', pl: 'Nie znaleziono strony' };
+const body = {
+  en: 'Sorry, that page doesn’t exist — it may have moved or never been here.',
+  hu: 'Sajnáljuk, ez az oldal nem létezik — lehet, hogy áthelyezték, vagy sosem volt itt.',
+  pl: 'Przepraszamy, ta strona nie istnieje — mogła zostać przeniesiona lub nigdy jej tu nie było.',
+};
+const back = { en: 'Back to home', hu: 'Vissza a főoldalra', pl: 'Powrót do strony głównej' };
+---
+<Layout>
+  <Header />
+  <main>
+    <section>
+      <div class="wrap">
+        <p class="kicker">404</p>
+        <h1><T t={heading} /></h1>
+        <p class="hero-sub"><T t={body} /></p>
+        <p class="section-cta"><a class="btn btn-primary" href={home}><T t={back} /></a></p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

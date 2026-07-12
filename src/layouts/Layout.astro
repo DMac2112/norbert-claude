@@ -7,6 +7,17 @@ import '../styles/theme-manuscript.css';
 import '../styles/theme-warm.css';
 import site from '../content/site.json';
 const meta = site.meta;
+// Canonical URL = deployed project-site root (site + base). Keep all absolute URLs on this base.
+const canonical = new URL(import.meta.env.BASE_URL, import.meta.env.SITE).href;
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Norbert Kovács',
+  jobTitle: 'Translator & Music Teacher',
+  knowsLanguage: ['hu', 'en', 'pl'],
+  address: { '@type': 'PostalAddress', addressLocality: 'Poznań', addressCountry: 'PL' },
+  url: canonical,
+};
 ---
 <!doctype html>
 <html lang="en" data-lang="en">
@@ -15,9 +26,16 @@ const meta = site.meta;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{meta.title.en}</title>
     <meta name="description" content={meta.description.en} />
+    <link rel="canonical" href={canonical} />
     <meta property="og:title" content={meta.title.en} />
     <meta property="og:description" content={meta.description.en} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="hu_HU" />
+    <meta property="og:locale:alternate" content="pl_PL" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
     <!-- Restore saved language BEFORE paint (no flash of wrong language) -->
     <script is:inline>
@@ -52,6 +70,15 @@ const meta = site.meta;
     <script is:inline define:vars={{ META: meta }}>
       var LANGS = ['en', 'hu', 'pl'];
 
+      // keep a cycle-button's aria-label = base label (active language) + current state, e.g.
+      // 'Change style (Literary → Manuscript → Warm) — Manuscript' — so SR users hear the live state
+      function setSwitchAria(btn, state) {
+        if (!btn) return;
+        var l = document.documentElement.dataset.lang || 'en';
+        var base = btn.getAttribute('data-al-' + l) || btn.getAttribute('aria-label') || '';
+        btn.setAttribute('aria-label', base + ' — ' + state);
+      }
+
       function applyLang(l) {
         var root = document.documentElement;
         root.lang = l;
@@ -71,6 +98,9 @@ const meta = site.meta;
         });
         var btn = document.getElementById('lang-switch');
         if (btn) btn.querySelector('b').textContent = l.toUpperCase();
+        // the loop above reset the cycle buttons to their base label — re-append their live state
+        if (typeof THEME_LABELS !== 'undefined') setSwitchAria(document.getElementById('theme-switch'), THEME_LABELS[root.dataset.theme] || '');
+        if (typeof PALETTE_LABELS !== 'undefined') setSwitchAria(document.getElementById('palette-switch'), PALETTE_LABELS[root.dataset.palette] || '');
         try { localStorage.setItem('nb.lang', l); } catch (e) { /* fine */ }
       }
 
@@ -92,7 +122,7 @@ const meta = site.meta;
         if (THEMES.indexOf(name) < 0) name = 'literary';
         document.documentElement.dataset.theme = name;
         var btn = document.getElementById('theme-switch');
-        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = THEME_LABELS[name]; }
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = THEME_LABELS[name]; setSwitchAria(btn, THEME_LABELS[name]); }
         try { localStorage.setItem('nb.theme', name); } catch (e) { /* fine */ }
       }
 
@@ -114,7 +144,7 @@ const meta = site.meta;
         if (PALETTES.indexOf(name) < 0) name = 'warm';
         document.documentElement.dataset.palette = name;
         var btn = document.getElementById('palette-switch');
-        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = PALETTE_LABELS[name]; }
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = PALETTE_LABELS[name]; setSwitchAria(btn, PALETTE_LABELS[name]); }
         try { localStorage.setItem('nb.palette', name); } catch (e) { /* fine */ }
       }
 
@@ -139,6 +169,18 @@ const meta = site.meta;
         });
         nav.addEventListener('click', function (e) {
           if (e.target.closest('a')) { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
+        });
+        // close on Escape or a click outside the header, keeping aria-expanded in sync
+        var header = document.querySelector('.site-header');
+        document.addEventListener('keydown', function (e) {
+          if ((e.key === 'Escape' || e.key === 'Esc') && nav.classList.contains('is-open')) {
+            nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); burger.focus();
+          }
+        });
+        document.addEventListener('click', function (e) {
+          if (nav.classList.contains('is-open') && header && !header.contains(e.target)) {
+            nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false');
+          }
         });
       }
 

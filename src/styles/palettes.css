@@ -15,7 +15,7 @@ html[data-palette="warm"] {
   --teal: #2a524e;
   --teal-deep: #1b3a37;
   --teal-tint: #e2e9e4;
-  --amber: #b0442b;
+  --amber: #a03e27;
   --amber-tint: #f0e0d6;
   --card: #fbf8f2;
   --line: rgba(28, 26, 22, 0.14);
@@ -30,7 +30,7 @@ html[data-palette="cool"] {
   --teal: #274a60;
   --teal-deep: #16303f;
   --teal-tint: #dbe6ea;
-  --amber: #b06a1f;
+  --amber: #8a5015;
   --amber-tint: #f0e2cc;
   --card: #f7fafb;
   --line: rgba(23, 27, 30, 0.14);
@@ -45,7 +45,7 @@ html[data-palette="bold"] {
   --teal: #1d1b18;
   --teal-deep: #000000;
   --teal-tint: #e6e2d9;
-  --amber: #dd4a2f;
+  --amber: #b53a23;
   --amber-tint: #f8dcd3;
   --card: #fcfaf5;
   --line: rgba(20, 18, 16, 0.16);

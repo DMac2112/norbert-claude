@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dmac2112.github.io/norbert-claude/sitemap.xml

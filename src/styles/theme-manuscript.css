@@ -28,7 +28,7 @@ html[data-theme="manuscript"] body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 150px 150px;
 }
-html[data-theme="manuscript"] ::selection { background: var(--amber); color: #fff; }
+html[data-theme="manuscript"] ::selection { background: var(--amber); color: var(--bg); }
 
 /* display headings: heavy grotesque, tight; wavy red "correction" underline on section titles */
 html[data-theme="manuscript"] h1 {
@@ -71,9 +71,9 @@ html[data-theme="manuscript"] .hero .wrap > div:first-child::before {
 }
 
 /* header / nav / brand */
-html[data-theme="manuscript"] .site-header { background: rgba(244, 241, 233, 0.92); border-bottom-color: var(--ink); }
+html[data-theme="manuscript"] .site-header { background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom-color: var(--ink); }
 html[data-theme="manuscript"] .brand { font-family: var(--font-head); font-variation-settings: 'wght' 700; }
-html[data-theme="manuscript"] .brand-mark { border-radius: 0; background: var(--ink); font-family: var(--font-mono); }
+html[data-theme="manuscript"] .brand-mark { border-radius: 0; background: var(--ink); color: var(--bg); font-family: var(--font-mono); }
 html[data-theme="manuscript"] .brand-acute { color: var(--amber); font-size: 1.35em; margin-top: -0.1em; }
 html[data-theme="manuscript"] .site-nav a { font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 0; padding: 8px 4px; margin: 0 8px; position: relative; }
 html[data-theme="manuscript"] .site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 3px; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: right; transition: transform 0.22s ease; }
@@ -93,9 +93,9 @@ html[data-theme="manuscript"] .theme-switch svg { color: var(--amber); }
 html[data-theme="manuscript"] .palette-switch .palette-swatch { border-radius: 0; }
 html[data-theme="manuscript"] .lang-switch:hover,
 html[data-theme="manuscript"] .theme-switch:hover,
-html[data-theme="manuscript"] .palette-switch:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
+html[data-theme="manuscript"] .palette-switch:hover { background: var(--amber); color: var(--bg); border-color: var(--amber); }
 html[data-theme="manuscript"] .lang-switch:hover svg,
-html[data-theme="manuscript"] .theme-switch:hover svg { color: #fff; }
+html[data-theme="manuscript"] .theme-switch:hover svg { color: var(--bg); }
 
 /* hero portrait: pinned index card */
 html[data-theme="manuscript"] .portrait {
@@ -122,7 +122,7 @@ html[data-theme="manuscript"] .btn {
 html[data-theme="manuscript"] .btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
 html[data-theme="manuscript"] .btn-primary { background: var(--teal-deep); }
 html[data-theme="manuscript"] .btn-amber { background: transparent; color: var(--amber); border-color: var(--amber); }
-html[data-theme="manuscript"] .btn-amber:hover { background: var(--amber); color: #fff; box-shadow: 3px 3px 0 var(--ink); }
+html[data-theme="manuscript"] .btn-amber:hover { background: var(--amber); color: var(--bg); box-shadow: 3px 3px 0 var(--ink); }
 html[data-theme="manuscript"] .btn-ghost { color: var(--ink); border-color: var(--ink); }
 
 /* cards / steps / chips / quotes — flat, ruled */
@@ -131,7 +131,7 @@ html[data-theme="manuscript"] .step,
 html[data-theme="manuscript"] .fact-card,
 html[data-theme="manuscript"] .contact-form { border-radius: 0; box-shadow: none; border-color: var(--line); }
 html[data-theme="manuscript"] .card .icon { border-radius: 0; }
-html[data-theme="manuscript"] .step::before { border-radius: 0; font-family: var(--font-mono); background: var(--ink); }
+html[data-theme="manuscript"] .step::before { border-radius: 0; font-family: var(--font-mono); background: var(--ink); color: var(--bg); }
 html[data-theme="manuscript"] .fact-card dt { font-family: var(--font-mono); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em; }
 html[data-theme="manuscript"] .chips li { border-radius: 0; background: transparent; border: 1px solid var(--line); color: var(--ink); font-family: var(--font-mono); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.04em; }
 html[data-theme="manuscript"] .quote { border-radius: 0; box-shadow: none; border-left: 3px solid var(--amber); }
@@ -145,6 +145,6 @@ html[data-theme="manuscript"] .field label { font-family: var(--font-mono); text
 html[data-theme="manuscript"] .field input,
 html[data-theme="manuscript"] .field select,
 html[data-theme="manuscript"] .field textarea { border-radius: 0; }
-html[data-theme="manuscript"] .site-footer { background: var(--ink); color: #cfc7bd; }
-html[data-theme="manuscript"] .site-footer a { color: #fff; }
+html[data-theme="manuscript"] .site-footer { background: var(--ink); color: var(--bg-band); }
+html[data-theme="manuscript"] .site-footer a { color: var(--bg); }
 html[data-theme="manuscript"] .site-footer .wrap { font-family: var(--font-mono); font-size: 0.8rem; }

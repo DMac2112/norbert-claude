@@ -2,7 +2,7 @@
    PALETTES  — the colour axis, independent of the style axis.
    Each palette defines the full token set the components read.
    Any style (literary / manuscript / warm) can wear any palette,
-   so there are 3 styles x 3 palettes = 9 looks. Selected via
+   so there are 3 styles x 8 palettes = 24 looks. Selected via
    html[data-palette="…"], cycled by the header swatch button.
    ============================================================ */
 
@@ -19,6 +19,7 @@ html[data-palette="warm"] {
   --amber-tint: #f0e0d6;
   --card: #fbf8f2;
   --line: rgba(28, 26, 22, 0.14);
+  --brand-text: #1b3a37;
 }
 
 /* 2 · COOL — oat-grey paper, slate blue, warm ochre. Calm, cooler. */
@@ -34,6 +35,7 @@ html[data-palette="cool"] {
   --amber-tint: #f0e2cc;
   --card: #f7fafb;
   --line: rgba(23, 27, 30, 0.14);
+  --brand-text: #16303f;
 }
 
 /* 3 · BOLD — bright bone, near-black ink primary, coral punch. Graphic. */
@@ -49,4 +51,85 @@ html[data-palette="bold"] {
   --amber-tint: #f8dcd3;
   --card: #fcfaf5;
   --line: rgba(20, 18, 16, 0.16);
+  --brand-text: #000000;
+}
+
+/* 4 · VELVET — warm ivory paper, oxblood primary, aged bronze-gold. Wine-dark, luxe. */
+html[data-palette="velvet"] {
+  --bg: #f7f0e4;
+  --bg-band: #efe4d2;
+  --ink: #201a17;
+  --ink-soft: #5c5049;
+  --teal: #6e2436;
+  --teal-deep: #4a1524;
+  --teal-tint: #ecdadd;
+  --amber: #7f5c0c;
+  --amber-tint: #f0e5cd;
+  --card: #fdf8ee;
+  --line: rgba(32, 26, 23, 0.14);
+  --brand-text: #4a1524;
+}
+
+/* 5 · DUSK — lavender-grey paper, deep indigo, deep raspberry. Evening, literary. */
+html[data-palette="dusk"] {
+  --bg: #e9e8f0;
+  --bg-band: #dbdae8;
+  --ink: #17161f;
+  --ink-soft: #4c4a5a;
+  --teal: #33356e;
+  --teal-deep: #1e1e48;
+  --teal-tint: #dedcef;
+  --amber: #a52a55;
+  --amber-tint: #f2dbe3;
+  --card: #f6f5fb;
+  --line: rgba(23, 22, 31, 0.14);
+  --brand-text: #1e1e48;
+}
+
+/* 6 · GROVE — green parchment, deep olive, burnt-orange rust. Natural, grounded. */
+html[data-palette="grove"] {
+  --bg: #eef0e0;
+  --bg-band: #e2e5cd;
+  --ink: #1a1c14;
+  --ink-soft: #4c5140;
+  --teal: #3f4b1f;
+  --teal-deep: #28330f;
+  --teal-tint: #e0e6cd;
+  --amber: #a5451c;
+  --amber-tint: #f2ddce;
+  --card: #f6f7ea;
+  --line: rgba(26, 28, 20, 0.14);
+  --brand-text: #28330f;
+}
+
+/* 7 · BLUSH — blush-pink paper, espresso-plum primary, deep wine. Soft, contemporary. */
+html[data-palette="blush"] {
+  --bg: #f7ebe9;
+  --bg-band: #f0dbd9;
+  --ink: #1e1614;
+  --ink-soft: #5a4a47;
+  --teal: #361f28;
+  --teal-deep: #241016;
+  --teal-tint: #efd9db;
+  --amber: #8f2740;
+  --amber-tint: #f4d9df;
+  --card: #fcf3f1;
+  --line: rgba(30, 22, 20, 0.14);
+  --brand-text: #241016;
+}
+
+/* 8 · NIGHT — warm near-black paper, muted jade, soft gold. Dark mode. */
+html[data-palette="night"] {
+  --bg: #1b1916;
+  --bg-band: #232019;
+  --ink: #f0e9dd;
+  --ink-soft: #b8b0a2;
+  --teal: #3d7a6d;
+  --teal-deep: #1c3a35;
+  --teal-tint: #21322e;
+  --amber: #d8b25c;
+  --amber-tint: #322a1a;
+  --card: #262218;
+  --line: rgba(240, 233, 221, 0.14);
+  --brand-text: #86d3bf;
 }

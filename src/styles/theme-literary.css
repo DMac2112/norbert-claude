@@ -30,7 +30,7 @@ html[data-theme="literary"] body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px 160px;
 }
-html[data-theme="literary"] ::selection { background: var(--amber); color: #fff; }
+html[data-theme="literary"] ::selection { background: var(--amber); color: var(--bg); }
 
 /* --- display headings: large, light, tight --- */
 html[data-theme="literary"] h1 {
@@ -68,11 +68,11 @@ html[data-theme="literary"] #contact h2::before {
 /* drop cap on the About lead paragraph */
 html[data-theme="literary"] #about .about-grid p:first-of-type::first-letter {
   float: left; font-size: 3.4em; line-height: 0.72; padding: 0.06em 0.09em 0 0;
-  color: var(--teal-deep); font-variation-settings: 'opsz' 144, 'wght' 500;
+  color: var(--brand-text); font-variation-settings: 'opsz' 144, 'wght' 500;
 }
 
 /* --- header / nav / brand mark --- */
-html[data-theme="literary"] .site-header { background: rgba(246, 242, 234, 0.9); }
+html[data-theme="literary"] .site-header { background: color-mix(in srgb, var(--bg) 90%, transparent); }
 html[data-theme="literary"] .brand-mark { border-radius: 50%; background: var(--teal); font-family: var(--font-head); font-variation-settings: 'wght' 600; }
 html[data-theme="literary"] .brand-acute { color: var(--amber); font-size: 1.3em; margin-top: -0.15em; }
 html[data-theme="literary"] .site-nav a { position: relative; border-radius: 0; padding: 8px 3px; margin: 0 9px; }
@@ -80,7 +80,7 @@ html[data-theme="literary"] .site-nav a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1.5px;
   background: var(--amber); transform: scaleX(0); transform-origin: right; transition: transform 0.25s ease;
 }
-html[data-theme="literary"] .site-nav a:hover { background: transparent; color: var(--teal-deep); }
+html[data-theme="literary"] .site-nav a:hover { background: transparent; color: var(--brand-text); }
 html[data-theme="literary"] .site-nav a:hover::after,
 html[data-theme="literary"] .site-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
 
@@ -88,20 +88,20 @@ html[data-theme="literary"] .site-nav a:focus-visible::after { transform: scaleX
 html[data-theme="literary"] .lang-switch,
 html[data-theme="literary"] .theme-switch,
 html[data-theme="literary"] .palette-switch {
-  border-color: var(--teal); color: var(--ink); background: var(--card);
+  border-color: var(--brand-text); color: var(--ink); background: var(--card);
   border-radius: 999px; font-family: var(--font-body); font-weight: 600;
 }
 html[data-theme="literary"] .lang-switch svg,
 html[data-theme="literary"] .theme-switch svg { color: var(--amber); }
 html[data-theme="literary"] .lang-switch:hover,
 html[data-theme="literary"] .theme-switch:hover,
-html[data-theme="literary"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
+html[data-theme="literary"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--brand-text); }
 
 /* --- hero portrait: editorial framed rectangle --- */
 html[data-theme="literary"] .portrait {
   aspect-ratio: 4 / 5; max-width: 360px; border-radius: var(--radius);
   background: var(--bg-band); border: 1px solid var(--line);
-  box-shadow: none; color: var(--teal-deep); overflow: hidden;
+  box-shadow: none; color: var(--brand-text); overflow: hidden;
 }
 html[data-theme="literary"] .portrait::before {
   content: ""; position: absolute; inset: 9px; border: 1px solid var(--teal); opacity: 0.45; border-radius: 2px;
@@ -113,15 +113,15 @@ html[data-theme="literary"] .portrait span { font-variation-settings: 'opsz' 144
 html[data-theme="literary"] .btn { border-radius: var(--radius); font-family: var(--font-body); font-weight: 600; letter-spacing: 0.01em; }
 html[data-theme="literary"] .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(28,26,22,0.14); }
 html[data-theme="literary"] .btn-primary { background: var(--teal-deep); }
-html[data-theme="literary"] .btn-amber { background: var(--amber); color: #fff; border-color: var(--amber); }
-html[data-theme="literary"] .btn-amber:hover { background: #97381f; }
+html[data-theme="literary"] .btn-amber { background: var(--amber); color: var(--bg); border-color: var(--amber); }
+html[data-theme="literary"] .btn-amber:hover { background: color-mix(in srgb, var(--amber) 82%, var(--ink)); }
 html[data-theme="literary"] .btn-ghost { color: var(--ink); border-color: var(--ink); }
 
 /* --- cards / steps / chips / quotes --- */
 html[data-theme="literary"] .card { border-radius: var(--radius); box-shadow: none; }
 html[data-theme="literary"] .card .icon { border-radius: 2px; }
 html[data-theme="literary"] .step { border-radius: var(--radius); }
-html[data-theme="literary"] .chips li { border-radius: 999px; background: transparent; border: 1px solid var(--line); color: var(--teal-deep); }
+html[data-theme="literary"] .chips li { border-radius: 999px; background: transparent; border: 1px solid var(--line); color: var(--brand-text); }
 html[data-theme="literary"] .fact-card { border-radius: var(--radius); box-shadow: none; }
 html[data-theme="literary"] .quote { border-radius: var(--radius); box-shadow: none; border-left: 3px solid var(--amber); }
 html[data-theme="literary"] .quote blockquote { font-variation-settings: 'opsz' 40, 'wght' 420; font-style: italic; font-size: 1.12rem; }

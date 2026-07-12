@@ -29,7 +29,7 @@ html[data-theme="warm"] body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 170px 170px;
 }
-html[data-theme="warm"] ::selection { background: var(--amber); color: #fff; }
+html[data-theme="warm"] ::selection { background: var(--amber); color: var(--bg); }
 
 /* soft warm ring cursor over interactive elements */
 html[data-theme="warm"] a,
@@ -59,27 +59,27 @@ html[data-theme="warm"] h3 { font-variation-settings: 'opsz' 30, 'wght' 600, 'SO
 html[data-theme="warm"] .hero-sub { font-size: 1.1rem; }
 
 /* friendly eyebrow with a dot */
-html[data-theme="warm"] .kicker { color: var(--teal-deep); }
+html[data-theme="warm"] .kicker { color: var(--brand-text); }
 html[data-theme="warm"] .kicker::before { content: "\25CF\00a0\00a0"; color: var(--amber); }
 
 /* header / nav / brand */
-html[data-theme="warm"] .site-header { background: rgba(248, 242, 232, 0.86); }
+html[data-theme="warm"] .site-header { background: color-mix(in srgb, var(--bg) 86%, transparent); }
 html[data-theme="warm"] .brand-mark { background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--teal) 82%, #fff), var(--teal-deep)); font-family: var(--font-head); }
 html[data-theme="warm"] .brand-acute { color: var(--amber); font-size: 1.3em; margin-top: -0.12em; }
 html[data-theme="warm"] .site-nav a { border-radius: 999px; }
-html[data-theme="warm"] .site-nav a:hover { background: var(--amber-tint); color: var(--teal-deep); }
+html[data-theme="warm"] .site-nav a:hover { background: var(--amber-tint); color: var(--brand-text); }
 
 /* switches: rounded, warm */
 html[data-theme="warm"] .lang-switch,
 html[data-theme="warm"] .theme-switch,
 html[data-theme="warm"] .palette-switch {
-  border-color: var(--teal); color: var(--teal-deep); background: var(--card); border-radius: 999px;
+  border-color: var(--brand-text); color: var(--brand-text); background: var(--card); border-radius: 999px;
 }
 html[data-theme="warm"] .lang-switch svg,
 html[data-theme="warm"] .theme-switch svg { color: var(--amber); }
 html[data-theme="warm"] .lang-switch:hover,
 html[data-theme="warm"] .theme-switch:hover,
-html[data-theme="warm"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--teal-deep); }
+html[data-theme="warm"] .palette-switch:hover { background: var(--amber-tint); border-color: var(--brand-text); }
 
 /* hero portrait: soft squircle with a hand-drawn ring */
 html[data-theme="warm"] .portrait {
@@ -102,9 +102,9 @@ html[data-theme="warm"] .btn { border-radius: 999px; font-family: var(--font-bod
 html[data-theme="warm"] .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(42, 35, 32, 0.16); }
 html[data-theme="warm"] .btn-primary { background: var(--teal); }
 html[data-theme="warm"] .btn-primary:hover { background: var(--teal-deep); }
-html[data-theme="warm"] .btn-amber { background: var(--amber); color: #fff; border-color: var(--amber); }
+html[data-theme="warm"] .btn-amber { background: var(--amber); color: var(--bg); border-color: var(--amber); }
 html[data-theme="warm"] .btn-amber:hover { background: var(--teal); color: #fff; }
-html[data-theme="warm"] .btn-ghost { color: var(--teal-deep); border-color: var(--teal); }
+html[data-theme="warm"] .btn-ghost { color: var(--brand-text); border-color: var(--brand-text); }
 
 /* cards / steps / chips / quotes — soft and rounded */
 html[data-theme="warm"] .card,
@@ -114,7 +114,7 @@ html[data-theme="warm"] .contact-form { border-radius: var(--radius); box-shadow
 html[data-theme="warm"] .card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
 html[data-theme="warm"] .card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(42, 35, 32, 0.13); }
 html[data-theme="warm"] .card .icon { border-radius: 12px; }
-html[data-theme="warm"] .chips li { border-radius: 999px; background: var(--amber-tint); color: #7a4d16; }
+html[data-theme="warm"] .chips li { border-radius: 999px; background: var(--amber-tint); color: color-mix(in srgb, var(--amber) 70%, var(--ink)); }
 html[data-theme="warm"] .quote { border-radius: var(--radius); box-shadow: var(--shadow); }
 html[data-theme="warm"] .quote blockquote { font-family: var(--font-head); font-variation-settings: 'opsz' 40, 'wght' 460, 'SOFT' 60; font-style: italic; }
 html[data-theme="warm"] .quote blockquote::before { color: var(--amber); }

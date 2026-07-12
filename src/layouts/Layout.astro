@@ -53,7 +53,7 @@ const personLd = {
     <script is:inline>
       (function () {
         var THEMES = ['literary', 'manuscript', 'warm'];
-        var PALETTES = ['warm', 'cool', 'bold'];
+        var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
         var t, p;
         try { t = localStorage.getItem('nb.theme'); p = localStorage.getItem('nb.palette'); } catch (e) { /* stateless is fine */ }
         var el = document.documentElement;
@@ -137,8 +137,8 @@ const personLd = {
       }
       applyTheme(document.documentElement.dataset.theme || 'literary'); // sync button label w/ restored theme
 
-      var PALETTES = ['warm', 'cool', 'bold'];
-      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold' };
+      var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
+      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold', velvet: 'Velvet', dusk: 'Dusk', grove: 'Grove', blush: 'Blush', night: 'Night' };
 
       function applyPalette(name) {
         if (PALETTES.indexOf(name) < 0) name = 'warm';

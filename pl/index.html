@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="pl" data-lang="pl"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Norbert Kovács — tłumacz węgiersko-angielski i nauczyciel muzyki</title><meta name="description" content="Tłumaczenia węgiersko-angielskie i lekcje muzyki. Osiem lat doświadczenia w Wielkiej Brytanii, obecnie w Poznaniu — pracuję w Polsce, Wielkiej Brytanii i na Węgrzech."><link rel="canonical" href="https://dmac2112.github.io/norbert-claude/pl/"><link rel="alternate" hreflang="en" href="https://dmac2112.github.io/norbert-claude/"><link rel="alternate" hreflang="hu" href="https://dmac2112.github.io/norbert-claude/hu/"><link rel="alternate" hreflang="pl" href="https://dmac2112.github.io/norbert-claude/pl/"><link rel="alternate" hreflang="x-default" href="https://dmac2112.github.io/norbert-claude/"><meta property="og:site_name" content="Norbert Kovács"><meta property="og:title" content="Norbert Kovács — tłumacz węgiersko-angielski i nauczyciel muzyki"><meta property="og:description" content="Tłumaczenia węgiersko-angielskie i lekcje muzyki. Osiem lat doświadczenia w Wielkiej Brytanii, obecnie w Poznaniu — pracuję w Polsce, Wielkiej Brytanii i na Węgrzech."><meta property="og:type" content="website"><meta property="og:url" content="https://dmac2112.github.io/norbert-claude/pl/"><meta property="og:locale" content="pl_PL"><meta property="og:locale:alternate" content="en_GB"><meta property="og:locale:alternate" content="hu_HU"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Norbert Kovács — tłumacz węgiersko-angielski i nauczyciel muzyki"><meta name="twitter:description" content="Tłumaczenia węgiersko-angielskie i lekcje muzyki. Osiem lat doświadczenia w Wielkiej Brytanii, obecnie w Poznaniu — pracuję w Polsce, Wielkiej Brytanii i na Węgrzech."><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://dmac2112.github.io/norbert-claude/#norbert","name":"Norbert Kovács","jobTitle":"Tłumacz i nauczyciel muzyki","description":"Tłumaczenia węgiersko-angielskie i lekcje muzyki. Osiem lat doświadczenia w Wielkiej Brytanii, obecnie w Poznaniu — pracuję w Polsce, Wielkiej Brytanii i na Węgrzech.","url":"https://dmac2112.github.io/norbert-claude/","knowsLanguage":["hu","en","pl"],"knowsAbout":["Hungarian–English translation","Localization","Subtitling","Piano teaching","Guitar teaching"],"address":{"@type":"PostalAddress","addressLocality":"Poznań","addressCountry":"PL"},"areaServed":[{"@type":"Country","name":"Poland"},{"@type":"Country","name":"United Kingdom"},{"@type":"Country","name":"Hungary"}],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Tłumaczenia","provider":{"@id":"https://dmac2112.github.io/norbert-claude/#norbert"}}},{"@type":"Offer","itemOffered":{"@type":"Service","serviceType":"Lekcje muzyki","provider":{"@id":"https://dmac2112.github.io/norbert-claude/#norbert"}}}]}</script><link rel="icon" href="/norbert-claude/favicon.svg" type="image/svg+xml"><!-- Restore saved style + palette BEFORE paint (no flash). Defaults: literary / warm. --><script>
+      (function () {
+        var THEMES = ['literary', 'manuscript', 'warm'];
+        var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
+        var t, p;
+        try { t = localStorage.getItem('nb.theme'); p = localStorage.getItem('nb.palette'); } catch (e) { /* stateless is fine */ }
+        var el = document.documentElement;
+        el.dataset.theme = (THEMES.indexOf(t) >= 0) ? t : 'literary';
+        el.dataset.palette = (PALETTES.indexOf(p) >= 0) ? p : 'warm';
+      })();
+    </script><link rel="preload" as="font" type="font/woff2" crossorigin href="/norbert-claude/fonts/fraunces-latin-normal-300-900.woff2"><link rel="stylesheet" href="/norbert-claude/_astro/index.kPXrxMVL.css"></head> <body>  <a class="skip-link" href="#about">Przejdź do treści</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="#top"> <span class="brand-mark" aria-hidden="true">NK</span> <span class="brand-name">Norbert Kovács<i class="brand-acute" aria-hidden="true">˝</i></span> </a> <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Otwórz menu">☰</button> <nav id="site-nav" class="site-nav" aria-label="Main"> <a href="#about">O mnie</a><a href="#translation">Tłumaczenia</a><a href="#music">Lekcje muzyki</a><a href="#contact">Kontakt</a> </nav> <!-- MASTER SWITCH — real navigation to the next language's route (works with JS off). --> <a id="lang-switch" class="lang-switch" href="https://dmac2112.github.io/norbert-claude/" hreflang="en" aria-label="Zmień język (angielski → węgierski → polski)"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"> <circle cx="12" cy="12" r="9"></circle> <path d="M3 12h18M12 3c2.6 2.6 3.9 5.7 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.7-3.9-9S9.4 5.6 12 3Z"></path> </svg> <b>PL</b> </a> <!-- Style switch — data-al-* consumed by setSwitchAria (live state) --> <button id="theme-switch" class="theme-switch" type="button" data-al-en="Change style (Literary → Manuscript → Warm)" data-al-hu="Stílusváltás (irodalmi → kézirat → meleg)" data-al-pl="Zmień styl (literacki → rękopis → ciepły)" aria-label="Zmień styl (literacki → rękopis → ciepły)"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="theme-switch__icon"> <circle cx="9" cy="9" r="6"></circle> <circle cx="15" cy="15" r="6"></circle> </svg> <b>Literary</b> </button> <!-- Colour switch — data-al-* consumed by setSwitchAria (live state) --> <button id="palette-switch" class="palette-switch" type="button" data-al-en="Change colour palette" data-al-hu="Színpaletta váltása" data-al-pl="Zmień paletę kolorów" aria-label="Zmień paletę kolorów"> <span class="palette-swatch" aria-hidden="true"></span> <b>Warm</b> </button> </div> </header> <main> <section class="hero" id="top"> <div class="wrap"> <div> <p class="kicker">Poznań · Belfast · Budapeszt</p> <h1>Łączę języki. Uczę muzyki.</h1> <p class="hero-sub">Jestem Norbert — tłumacz węgiersko-angielski z ośmioletnim doświadczeniem w Wielkiej Brytanii, od niedawna w Poznaniu. Pomagam polskim, brytyjskim i węgierskim klientom powiedzieć dokładnie to, co mają na myśli — a przy okazji uczę gry na pianinie i gitarze.</p> <div class="hero-ctas"> <a class="btn btn-primary" href="#contact" data-subject="translation">Poproś o wycenę tłumaczenia</a> <a class="btn btn-amber" href="#contact" data-subject="music">Umów lekcję muzyki</a> </div> </div> <div class="portrait" role="img" aria-label="Miejsce na portret Norberta"> <span>NK</span> </div> </div> </section> <section id="about" class="band"> <div class="wrap reveal"> <h2>O mnie</h2> <div class="about-grid"> <div> <p>Dorastałem na Węgrzech, przez ostatnie osiem lat pracowałem jako tłumacz w Belfaście, a niedawno moim domem stał się Poznań. Życie między trzema krajami nauczyło mnie, że tłumaczenie to nie słowa — to znaczenie, które ludzie naprawdę chcą przekazać.</p><p>W Wielkiej Brytanii współpracowałem z agencjami, kancelariami prawnymi i małymi firmami — od dokumentów uwierzytelnionych po kampanie marketingowe. Teraz w Polsce pomagam lokalnym firmom docierać na rynki węgiersko- i anglojęzyczne — i odwrotnie.</p><p>Muzyka jest drugą połową mojego życia, odkąd skończyłem sześć lat. Od ponad dekady uczę gry na pianinie i gitarze — cierpliwie, w trzech językach, dzieci i dorosłych.</p> <ul class="chips"> <li>Węgierski — język ojczysty</li><li>Biegły angielski (8 lat w UK)</li><li>Uczę się polskiego</li><li>Mieszkam w Poznaniu</li><li>Online na całym świecie</li> </ul> </div> <dl class="fact-card"> <dt>Języki</dt> <dd>węgierski (ojczysty) · angielski (biegły) · polski (uczę się)</dd> <dt>Doświadczenie</dt> <dd>8 lat tłumaczeń w Wielkiej Brytanii · ponad 10 lat nauczania muzyki</dd> <dt>Obecnie</dt> <dd>Poznań — stacjonarnie i online</dd> </dl> </div> </div> </section> <section id="translation"> <div class="wrap reveal"> <h2>Tłumaczenia</h2> <p style="max-width:64ch">Węgierski ⇄ angielski, w obu kierunkach, z natywną starannością. Pracuję z polskimi agencjami i firmami, które potrzebują języka węgierskiego lub angielskiego — oraz z klientami w Wielkiej Brytanii i na Węgrzech.</p> <div class="cards"> <div class="card"> <div class="icon" aria-hidden="true">📈</div> <h3>Biznes i marketing</h3> <p>Strony internetowe, broszury, kampanie i teksty produktowe, które brzmią, jakby powstały w języku docelowym — a nie zostały przetłumaczone.</p> </div><div class="card"> <div class="icon" aria-hidden="true">📄</div> <h3>Dokumenty urzędowe</h3> <p>Umowy, świadectwa, dyplomy i dokumenty osobiste — dokładnie, poufnie i na czas.</p> </div><div class="card"> <div class="icon" aria-hidden="true">🖥️</div> <h3>Strony i oprogramowanie</h3> <p>Lokalizacja interfejsów, centrów pomocy i opisów w sklepach z aplikacjami — nic nie brzmi obco dla użytkownika.</p> </div><div class="card"> <div class="icon" aria-hidden="true">🎬</div> <h3>Napisy i transkrypcje</h3> <p>Napisy do filmów, transkrypcje wywiadów i skrypty lektorskie z naturalnym rytmem i tonem.</p> </div> </div> <h3 style="margin-top:40px">Jak to działa</h3> <div class="steps"> <div class="step"> <h3>Wyślij</h3> <p>Prześlij mi tekst lub plik — dowolny format.</p> </div><div class="step"> <h3>Wycena w 24 h</h3> <p>Otrzymasz stałą cenę i termin realizacji. Bez niespodzianek.</p> </div><div class="step"> <h3>Gotowe</h3> <p>Po korekcie, sformatowane i dostarczone — z jedną rundą poprawek w cenie.</p> </div> </div> <div class="section-cta"> <a class="btn btn-primary" href="#contact" data-subject="translation">Poproś o wycenę</a> </div> </div> </section> <section id="music" class="band music"> <div class="wrap reveal"> <h2>Lekcje muzyki</h2> <p style="max-width:64ch">Pianino i gitara — od początkujących do średnio zaawansowanych, dzieci i dorośli. Stacjonarnie w Poznaniu lub online. Lekcje po angielsku, węgiersku lub (prostym) polsku.</p> <div class="cards"> <div class="card"> <div class="icon" aria-hidden="true">🎹</div> <h3>Pianino</h3> <p>Podstawy klasyczne albo ulubione piosenki — Twój wybór. Czytanie nut od pierwszego dnia, bez nudy.</p> </div><div class="card"> <div class="icon" aria-hidden="true">🎸</div> <h3>Gitara</h3> <p>Akustyczna i elektryczna. Akordy, bicie i pierwsze piosenki w kilka tygodni.</p> </div><div class="card"> <div class="icon" aria-hidden="true">🎵</div> <h3>Dla każdego</h3> <p>Od 6 do 96 lat. Zapraszam zupełnie początkujących — większość moich uczniów zaczynała od zera.</p> </div> </div> <p class="price-line">Od 120 zł / 60 min w Poznaniu · 25 GBP online — pierwsza lekcja próbna za pół ceny.</p> <div class="section-cta"> <a class="btn btn-amber" href="#contact" data-subject="music">Umów lekcję próbną</a> </div> </div> </section> <section id="testimonials"> <div class="wrap reveal"> <h2>Opinie</h2> <div class="quotes"> <figure class="quote"> <blockquote>Norbert przełożył nasze teksty prawne na węgierski tak, że nasze biuro w Budapeszcie było zachwycone. Szybko, precyzyjnie, bez zamieszania.</blockquote> <figcaption><b>Sarah W.</b> — Project manager, agencja w Belfaście</figcaption> </figure><figure class="quote"> <blockquote>Nasza strona w końcu brzmi, jakby napisał ją native speaker — bo tak właśnie było. Rezerwacje z Wielkiej Brytanii się podwoiły.</blockquote> <figcaption><b>Máté H.</b> — Właściciel pensjonatu, Budapeszt</figcaption> </figure><figure class="quote"> <blockquote>Moja córka w rok przeszła od zera do pierwszego występu — i nie może się doczekać każdej lekcji.</blockquote> <figcaption><b>Emma T.</b> — Mama uczennicy pianina</figcaption> </figure> </div> </div> </section> <section id="contact" class="band"> <div class="wrap reveal"> <h2>Porozmawiajmy</h2> <div class="contact-grid"> <div class="contact-info"> <p>Napisz, czego potrzebujesz — wyceny, lekcji próbnej czy po prostu masz pytanie. Zwykle odpowiadam w ciągu 24 godzin, po angielsku, węgiersku lub polsku.</p> <p class="contact-direct"> albo napisz bezpośrednio: <br> <a href="mailto:hello@norbert-example.com">hello@norbert-example.com</a> <br> <span>+48 600 000 000</span> · Poznań, Polska </p> </div> <!-- Netlify Forms when deployed there; mailto link above is the no-service fallback --> <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company"> <input type="hidden" name="form-name" value="contact"> <p class="honeypot" aria-hidden="true"> <label>Company <input name="company" tabindex="-1" autocomplete="off"></label> </p> <div class="field"> <label for="name">Twoje imię</label> <input id="name" name="name" type="text" required autocomplete="name"> </div> <div class="field"> <label for="email">Adres e-mail</label> <input id="email" name="email" type="email" required autocomplete="email"> </div> <div class="field"> <label for="service">Czego potrzebujesz?</label> <select id="service" name="service"> <option value="translation">Tłumaczenie</option><option value="music">Lekcje muzyki</option><option value="other">Coś innego</option> </select> </div> <div class="field"> <label for="message">Twoja wiadomość</label> <textarea id="message" name="message" required placeholder="Kilka zdań o Twoim projekcie lub o tym, czego chcesz się nauczyć…"></textarea> </div> <button class="btn btn-primary" type="submit">Wyślij wiadomość</button> </form> </div> </div> </section> </main> <footer class="site-footer"> <div class="wrap"> <span>© 2026 Norbert Kovács · Tłumaczenia węgiersko-angielskie i lekcje muzyki · Poznań / online</span> <span class="muted">Ta strona mówi po angielsku, węgiersku i polsku — użyj przełącznika u góry.</span> <a href="mailto:hello@norbert-example.com">hello@norbert-example.com</a> </div> </footer>  <!-- Style / colour / menu interactions + language-link hash sync. Only client JS on the site. --> <script>
+      // cycle-button aria-label = localized base (data-al-<lang>) + current state
+      function setSwitchAria(btn, state) {
+        if (!btn) return;
+        var l = document.documentElement.dataset.lang || 'en';
+        var base = btn.getAttribute('data-al-' + l) || btn.getAttribute('aria-label') || '';
+        btn.setAttribute('aria-label', base + ' — ' + state);
+      }
+
+      var THEMES = ['literary', 'manuscript', 'warm'];
+      var THEME_LABELS = { literary: 'Literary', manuscript: 'Manuscript', warm: 'Warm' };
+      function applyTheme(name) {
+        if (THEMES.indexOf(name) < 0) name = 'literary';
+        document.documentElement.dataset.theme = name;
+        var btn = document.getElementById('theme-switch');
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = THEME_LABELS[name]; setSwitchAria(btn, THEME_LABELS[name]); }
+        try { localStorage.setItem('nb.theme', name); } catch (e) { /* fine */ }
+      }
+      var themeBtn = document.getElementById('theme-switch');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var cur = document.documentElement.dataset.theme || 'literary';
+          var i = THEMES.indexOf(cur);
+          applyTheme(THEMES[(i < 0 ? 0 : (i + 1) % THEMES.length)]);
+        });
+      }
+      applyTheme(document.documentElement.dataset.theme || 'literary');
+
+      var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
+      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold', velvet: 'Velvet', dusk: 'Dusk', grove: 'Grove', blush: 'Blush', night: 'Night' };
+      function applyPalette(name) {
+        if (PALETTES.indexOf(name) < 0) name = 'warm';
+        document.documentElement.dataset.palette = name;
+        var btn = document.getElementById('palette-switch');
+        if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = PALETTE_LABELS[name]; setSwitchAria(btn, PALETTE_LABELS[name]); }
+        try { localStorage.setItem('nb.palette', name); } catch (e) { /* fine */ }
+      }
+      var paletteBtn = document.getElementById('palette-switch');
+      if (paletteBtn) {
+        paletteBtn.addEventListener('click', function () {
+          var cur = document.documentElement.dataset.palette || 'warm';
+          var pi = PALETTES.indexOf(cur);
+          applyPalette(PALETTES[(pi < 0 ? 0 : (pi + 1) % PALETTES.length)]);
+        });
+      }
+      applyPalette(document.documentElement.dataset.palette || 'warm');
+
+      // language link → carry the current section anchor across to the sibling route
+      var langLink = document.getElementById('lang-switch');
+      if (langLink && langLink.tagName === 'A') {
+        var langBase = langLink.getAttribute('href');
+        var syncLangHash = function () { langLink.setAttribute('href', langBase + location.hash); };
+        syncLangHash();
+        window.addEventListener('hashchange', syncLangHash);
+      }
+
+      // mobile menu
+      var burger = document.getElementById('menu-btn');
+      var nav = document.getElementById('site-nav');
+      if (burger && nav) {
+        burger.addEventListener('click', function () {
+          var open = nav.classList.toggle('is-open');
+          burger.setAttribute('aria-expanded', String(open));
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.closest('a')) { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
+        });
+        var header = document.querySelector('.site-header');
+        document.addEventListener('keydown', function (e) {
+          if ((e.key === 'Escape' || e.key === 'Esc') && nav.classList.contains('is-open')) {
+            nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); burger.focus();
+          }
+        });
+        document.addEventListener('click', function (e) {
+          if (nav.classList.contains('is-open') && header && !header.contains(e.target)) {
+            nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // CTA → contact with the service dropdown prefilled
+      document.querySelectorAll('[data-subject]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var sel = document.getElementById('service');
+          if (sel) sel.value = el.getAttribute('data-subject');
+        });
+      });
+
+      // scroll-reveal (respects reduced motion)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    </script> </body> </html>

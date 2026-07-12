@@ -1,6 +1,29 @@
 ---
 import site from '../content/site.json';
 import T from './T.astro';
+import { localeFromUrl, type Lang } from '../lib/locale';
+
+const lang = localeFromUrl(Astro.url);
+
+// language switch → real navigation to the next locale (EN → HU → PL → EN)
+const NEXT: Record<Lang, Lang> = { en: 'hu', hu: 'pl', pl: 'en' };
+const origin = new URL(import.meta.env.BASE_URL, import.meta.env.SITE);
+const localeUrl = (loc: Lang) => (loc === 'en' ? origin.href : new URL(`${loc}/`, origin).href);
+const nextLoc = NEXT[lang];
+const nextUrl = localeUrl(nextLoc);
+
+const menuLabel = { en: 'Open menu', hu: 'Menü megnyitása', pl: 'Otwórz menu' };
+const langLabel = {
+  en: 'Switch language (English → Hungarian → Polish)',
+  hu: 'Nyelvváltás (angol → magyar → lengyel)',
+  pl: 'Zmień język (angielski → węgierski → polski)',
+};
+const themeLabel = {
+  en: 'Change style (Literary → Manuscript → Warm)',
+  hu: 'Stílusváltás (irodalmi → kézirat → meleg)',
+  pl: 'Zmień styl (literacki → rękopis → ciepły)',
+};
+const paletteLabel = { en: 'Change colour palette', hu: 'Színpaletta váltása', pl: 'Zmień paletę kolorów' };
 ---
 <header class="site-header">
   <div class="wrap">
@@ -10,7 +33,7 @@ import T from './T.astro';
     </a>
 
     <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="site-nav"
-      data-al-en="Open menu" data-al-hu="Menü megnyitása" data-al-pl="Otwórz menu" aria-label="Open menu">☰</button>
+      aria-label={menuLabel[lang]}>☰</button>
 
     <nav id="site-nav" class="site-nav" aria-label="Main">
       {site.nav.map((item) => (
@@ -18,25 +41,21 @@ import T from './T.astro';
       ))}
     </nav>
 
-    <!-- MASTER SWITCH — always on screen (sticky header): EN → HU → PL → EN -->
-    <button id="lang-switch" class="lang-switch" type="button"
-      data-al-en="Switch language (English → Hungarian → Polish)"
-      data-al-hu="Nyelvváltás (angol → magyar → lengyel)"
-      data-al-pl="Zmień język (angielski → węgierski → polski)"
-      aria-label="Switch language (English → Hungarian → Polish)">
+    <!-- MASTER SWITCH — real navigation to the next language's route (works with JS off). -->
+    <a id="lang-switch" class="lang-switch" href={nextUrl} hreflang={nextLoc} aria-label={langLabel[lang]}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="12" cy="12" r="9" />
         <path d="M3 12h18M12 3c2.6 2.6 3.9 5.7 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.7-3.9-9S9.4 5.6 12 3Z" />
       </svg>
-      <b>EN</b>
-    </button>
+      <b>{lang.toUpperCase()}</b>
+    </a>
 
-    <!-- Style switch — always on screen (sticky header): cycles Literary → Manuscript → Warm -->
+    <!-- Style switch — data-al-* consumed by setSwitchAria (live state) -->
     <button id="theme-switch" class="theme-switch" type="button"
       data-al-en="Change style (Literary → Manuscript → Warm)"
       data-al-hu="Stílusváltás (irodalmi → kézirat → meleg)"
       data-al-pl="Zmień styl (literacki → rękopis → ciepły)"
-      aria-label="Change style (Literary → Manuscript → Warm)">
+      aria-label={themeLabel[lang]}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="theme-switch__icon">
         <circle cx="9" cy="9" r="6" />
         <circle cx="15" cy="15" r="6" />
@@ -44,12 +63,12 @@ import T from './T.astro';
       <b>Literary</b>
     </button>
 
-    <!-- Colour switch — always on screen (sticky header): cycles through the palettes -->
+    <!-- Colour switch — data-al-* consumed by setSwitchAria (live state) -->
     <button id="palette-switch" class="palette-switch" type="button"
       data-al-en="Change colour palette"
       data-al-hu="Színpaletta váltása"
       data-al-pl="Zmień paletę kolorów"
-      aria-label="Change colour palette">
+      aria-label={paletteLabel[lang]}>
       <span class="palette-swatch" aria-hidden="true"></span>
       <b>Warm</b>
     </button>

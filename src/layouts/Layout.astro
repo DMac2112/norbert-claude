@@ -6,49 +6,91 @@ import '../styles/theme-literary.css';
 import '../styles/theme-manuscript.css';
 import '../styles/theme-warm.css';
 import site from '../content/site.json';
+import { localeFromUrl, type Lang } from '../lib/locale';
+
+interface Props { noindex?: boolean }
+const { noindex = false } = Astro.props;
+
 const meta = site.meta;
-// Canonical URL = deployed project-site root (site + base). Keep all absolute URLs on this base.
-const canonical = new URL(import.meta.env.BASE_URL, import.meta.env.SITE).href;
+const lang = localeFromUrl(Astro.url);
+
+// Absolute URLs on the project-site base, e.g. https://dmac2112.github.io/norbert-claude/hu/
+const origin = new URL(import.meta.env.BASE_URL, import.meta.env.SITE); // …/norbert-claude/
+const localeUrl = (loc: Lang) => (loc === 'en' ? origin.href : new URL(`${loc}/`, origin).href);
+const urlEn = localeUrl('en');
+const urlHu = localeUrl('hu');
+const urlPl = localeUrl('pl');
+const selfUrl = localeUrl(lang);
+
+const OG_LOCALE: Record<Lang, string> = { en: 'en_GB', hu: 'hu_HU', pl: 'pl_PL' };
+const ogAlternates = (['en', 'hu', 'pl'] as Lang[]).filter((l) => l !== lang).map((l) => OG_LOCALE[l]);
+
 const personLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Norbert Kovács',
-  jobTitle: 'Translator & Music Teacher',
+  '@id': urlEn + '#norbert',
+  name: site.brand.name,
+  jobTitle: site.brand.tagline[lang],
+  description: meta.description[lang],
+  url: urlEn,
   knowsLanguage: ['hu', 'en', 'pl'],
+  knowsAbout: [
+    'Hungarian–English translation',
+    'Localization',
+    'Subtitling',
+    'Piano teaching',
+    'Guitar teaching',
+  ],
   address: { '@type': 'PostalAddress', addressLocality: 'Poznań', addressCountry: 'PL' },
-  url: canonical,
+  areaServed: [
+    { '@type': 'Country', name: 'Poland' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Hungary' },
+  ],
+  makesOffer: [
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', serviceType: site.translation.heading[lang], provider: { '@id': urlEn + '#norbert' } } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', serviceType: site.music.heading[lang], provider: { '@id': urlEn + '#norbert' } } },
+  ],
 };
+
+// Pre-paint language restore — 404 only (indexable pages are fixed by their URL).
+const langRestore = `(function(){try{var l=localStorage.getItem('nb.lang');if(l==='hu'||l==='pl'||l==='en'){document.documentElement.lang=l;document.documentElement.dataset.lang=l;}}catch(e){}})();`;
 ---
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang={lang} data-lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{meta.title.en}</title>
-    <meta name="description" content={meta.description.en} />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={meta.title.en} />
-    <meta property="og:description" content={meta.description.en} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:locale:alternate" content="hu_HU" />
-    <meta property="og:locale:alternate" content="pl_PL" />
-    <meta name="twitter:card" content="summary" />
-    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+    <title>{meta.title[lang]}</title>
+    <meta name="description" content={meta.description[lang]} />
+
+    {!noindex && (
+      <Fragment>
+        <link rel="canonical" href={selfUrl} />
+        <link rel="alternate" hreflang="en" href={urlEn} />
+        <link rel="alternate" hreflang="hu" href={urlHu} />
+        <link rel="alternate" hreflang="pl" href={urlPl} />
+        <link rel="alternate" hreflang="x-default" href={urlEn} />
+        <meta property="og:site_name" content={site.brand.name} />
+        <meta property="og:title" content={meta.title[lang]} />
+        <meta property="og:description" content={meta.description[lang]} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={selfUrl} />
+        <meta property="og:locale" content={OG_LOCALE[lang]} />
+        {ogAlternates.map((l) => <meta property="og:locale:alternate" content={l} />)}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={meta.title[lang]} />
+        <meta name="twitter:description" content={meta.description[lang]} />
+        <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+      </Fragment>
+    )}
+
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
-    <!-- Restore saved language BEFORE paint (no flash of wrong language) -->
-    <script is:inline>
-      (function () {
-        try {
-          var l = localStorage.getItem('nb.lang');
-          if (l === 'hu' || l === 'pl' || l === 'en') {
-            document.documentElement.lang = l;
-            document.documentElement.dataset.lang = l;
-          }
-        } catch (e) { /* stateless is fine */ }
-      })();
-    </script>
+
+    {noindex && <script is:inline set:html={langRestore} />}
+
     <!-- Restore saved style + palette BEFORE paint (no flash). Defaults: literary / warm. -->
     <script is:inline>
       (function () {
@@ -61,17 +103,15 @@ const personLd = {
         el.dataset.palette = (PALETTES.indexOf(p) >= 0) ? p : 'warm';
       })();
     </script>
+
     <link rel="preload" as="font" type="font/woff2" crossorigin
       href={`${import.meta.env.BASE_URL}fonts/fraunces-latin-normal-300-900.woff2`} />
   </head>
   <body>
     <slot />
-    <!-- Master language switch + small interactions. The only client JS on the site. -->
-    <script is:inline define:vars={{ META: meta }}>
-      var LANGS = ['en', 'hu', 'pl'];
-
-      // keep a cycle-button's aria-label = base label (active language) + current state, e.g.
-      // 'Change style (Literary → Manuscript → Warm) — Manuscript' — so SR users hear the live state
+    <!-- Style / colour / menu interactions + language-link hash sync. Only client JS on the site. -->
+    <script is:inline>
+      // cycle-button aria-label = localized base (data-al-<lang>) + current state
       function setSwitchAria(btn, state) {
         if (!btn) return;
         var l = document.documentElement.dataset.lang || 'en';
@@ -79,45 +119,8 @@ const personLd = {
         btn.setAttribute('aria-label', base + ' — ' + state);
       }
 
-      function applyLang(l) {
-        var root = document.documentElement;
-        root.lang = l;
-        root.dataset.lang = l;
-        document.title = META.title[l];
-        var desc = document.querySelector('meta[name="description"]');
-        if (desc) desc.setAttribute('content', META.description[l]);
-        // attribute-carried strings (placeholders, option labels, aria-labels)
-        document.querySelectorAll('[data-ph-en]').forEach(function (el) {
-          el.setAttribute('placeholder', el.getAttribute('data-ph-' + l) || '');
-        });
-        document.querySelectorAll('[data-t-en]').forEach(function (el) {
-          el.textContent = el.getAttribute('data-t-' + l) || '';
-        });
-        document.querySelectorAll('[data-al-en]').forEach(function (el) {
-          el.setAttribute('aria-label', el.getAttribute('data-al-' + l) || '');
-        });
-        var btn = document.getElementById('lang-switch');
-        if (btn) btn.querySelector('b').textContent = l.toUpperCase();
-        // the loop above reset the cycle buttons to their base label — re-append their live state
-        if (typeof THEME_LABELS !== 'undefined') setSwitchAria(document.getElementById('theme-switch'), THEME_LABELS[root.dataset.theme] || '');
-        if (typeof PALETTE_LABELS !== 'undefined') setSwitchAria(document.getElementById('palette-switch'), PALETTE_LABELS[root.dataset.palette] || '');
-        try { localStorage.setItem('nb.lang', l); } catch (e) { /* fine */ }
-      }
-
-      // master switch: EN → HU → PL → EN, always visible in the sticky header
-      var switchBtn = document.getElementById('lang-switch');
-      if (switchBtn) {
-        switchBtn.addEventListener('click', function () {
-          var cur = document.documentElement.dataset.lang || 'en';
-          var next = LANGS[(LANGS.indexOf(cur) + 1) % LANGS.length];
-          applyLang(next);
-        });
-      }
-      applyLang(document.documentElement.dataset.lang || 'en'); // sync attrs w/ stored lang
-
       var THEMES = ['literary', 'manuscript', 'warm'];
       var THEME_LABELS = { literary: 'Literary', manuscript: 'Manuscript', warm: 'Warm' };
-
       function applyTheme(name) {
         if (THEMES.indexOf(name) < 0) name = 'literary';
         document.documentElement.dataset.theme = name;
@@ -125,8 +128,6 @@ const personLd = {
         if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = THEME_LABELS[name]; setSwitchAria(btn, THEME_LABELS[name]); }
         try { localStorage.setItem('nb.theme', name); } catch (e) { /* fine */ }
       }
-
-      // style switch: cycles Literary → Manuscript → Warm, always visible in the sticky header
       var themeBtn = document.getElementById('theme-switch');
       if (themeBtn) {
         themeBtn.addEventListener('click', function () {
@@ -135,11 +136,10 @@ const personLd = {
           applyTheme(THEMES[(i < 0 ? 0 : (i + 1) % THEMES.length)]);
         });
       }
-      applyTheme(document.documentElement.dataset.theme || 'literary'); // sync button label w/ restored theme
+      applyTheme(document.documentElement.dataset.theme || 'literary');
 
       var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
       var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold', velvet: 'Velvet', dusk: 'Dusk', grove: 'Grove', blush: 'Blush', night: 'Night' };
-
       function applyPalette(name) {
         if (PALETTES.indexOf(name) < 0) name = 'warm';
         document.documentElement.dataset.palette = name;
@@ -147,8 +147,6 @@ const personLd = {
         if (btn) { var lbl = btn.querySelector('b'); if (lbl) lbl.textContent = PALETTE_LABELS[name]; setSwitchAria(btn, PALETTE_LABELS[name]); }
         try { localStorage.setItem('nb.palette', name); } catch (e) { /* fine */ }
       }
-
-      // colour switch: cycles Warm → Cool → Bold, independent of the style
       var paletteBtn = document.getElementById('palette-switch');
       if (paletteBtn) {
         paletteBtn.addEventListener('click', function () {
@@ -157,7 +155,16 @@ const personLd = {
           applyPalette(PALETTES[(pi < 0 ? 0 : (pi + 1) % PALETTES.length)]);
         });
       }
-      applyPalette(document.documentElement.dataset.palette || 'warm'); // sync button label w/ restored palette
+      applyPalette(document.documentElement.dataset.palette || 'warm');
+
+      // language link → carry the current section anchor across to the sibling route
+      var langLink = document.getElementById('lang-switch');
+      if (langLink && langLink.tagName === 'A') {
+        var langBase = langLink.getAttribute('href');
+        var syncLangHash = function () { langLink.setAttribute('href', langBase + location.hash); };
+        syncLangHash();
+        window.addEventListener('hashchange', syncLangHash);
+      }
 
       // mobile menu
       var burger = document.getElementById('menu-btn');
@@ -170,7 +177,6 @@ const personLd = {
         nav.addEventListener('click', function (e) {
           if (e.target.closest('a')) { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
         });
-        // close on Escape or a click outside the header, keeping aria-expanded in sync
         var header = document.querySelector('.site-header');
         document.addEventListener('keydown', function (e) {
           if ((e.key === 'Escape' || e.key === 'Esc') && nav.classList.contains('is-open')) {

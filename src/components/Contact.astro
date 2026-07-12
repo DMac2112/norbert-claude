@@ -1,8 +1,10 @@
 ---
 import site from '../content/site.json';
 import T from './T.astro';
+import { localeFromUrl } from '../lib/locale';
 const c = site.contact;
 const f = c.form;
+const lang = localeFromUrl(Astro.url);
 ---
 <section id="contact" class="band">
   <div class="wrap reveal">
@@ -40,12 +42,7 @@ const f = c.form;
           <label for="service"><T t={f.service} /></label>
           <select id="service" name="service">
             {f.subjectOptions.map((o) => (
-              <option
-                value={o.value}
-                data-t-en={o.label.en}
-                data-t-hu={o.label.hu}
-                data-t-pl={o.label.pl}
-              >{o.label.en}</option>
+              <option value={o.value}>{o.label[lang]}</option>
             ))}
           </select>
         </div>
@@ -56,10 +53,7 @@ const f = c.form;
             id="message"
             name="message"
             required
-            placeholder={f.messagePlaceholder.en}
-            data-ph-en={f.messagePlaceholder.en}
-            data-ph-hu={f.messagePlaceholder.hu}
-            data-ph-pl={f.messagePlaceholder.pl}
+            placeholder={f.messagePlaceholder[lang]}
           ></textarea>
         </div>
 

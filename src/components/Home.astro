@@ -1,0 +1,25 @@
+---
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Translation from './Translation.astro';
+import Music from './Music.astro';
+import Testimonials from './Testimonials.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { localeFromUrl } from '../lib/locale';
+
+const lang = localeFromUrl(Astro.url);
+const skip = { en: 'Skip to content', hu: 'Ugrás a tartalomra', pl: 'Przejdź do treści' };
+---
+<a class="skip-link" href="#about">{skip[lang]}</a>
+<Header />
+<main>
+  <Hero />
+  <About />
+  <Translation />
+  <Music />
+  <Testimonials />
+  <Contact />
+</main>
+<Footer />

@@ -1,7 +1,14 @@
 ---
 import site from '../content/site.json';
 import T from './T.astro';
+import { localeFromUrl } from '../lib/locale';
 const h = site.hero;
+const lang = localeFromUrl(Astro.url);
+const portraitLabel = {
+  en: 'Portrait placeholder for Norbert',
+  hu: 'Norbert portréjának helye',
+  pl: 'Miejsce na portret Norberta',
+};
 ---
 <section class="hero" id="top">
   <div class="wrap">
@@ -14,11 +21,7 @@ const h = site.hero;
         <a class="btn btn-amber" href="#contact" data-subject="music"><T t={h.ctaMusic} /></a>
       </div>
     </div>
-    <div class="portrait" role="img"
-      data-al-en="Portrait placeholder for Norbert"
-      data-al-hu="Norbert portréjának helye"
-      data-al-pl="Miejsce na portret Norberta"
-      aria-label="Portrait placeholder for Norbert">
+    <div class="portrait" role="img" aria-label={portraitLabel[lang]}>
       <span>{site.brand.initials}</span>
     </div>
   </div>

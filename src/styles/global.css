@@ -83,7 +83,7 @@ section { padding: 72px 0; }
   border: 1.5px solid var(--brand-text); border-radius: 999px;
   background: var(--card); color: var(--brand-text);
   font: 600 .88rem var(--font-body); letter-spacing: .04em;
-  cursor: pointer;
+  cursor: pointer; text-decoration: none;
   transition: background .15s;
 }
 .lang-switch:hover { background: var(--teal-tint); }

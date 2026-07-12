@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import T from '../components/T.astro';
 
-// Trilingual not-found page. GitHub Pages serves this as 404.html for the project site.
+// Trilingual not-found page. GitHub Pages serves this as the single 404.html.
 const home = import.meta.env.BASE_URL;
 const heading = { en: 'Page not found', hu: 'Az oldal nem található', pl: 'Nie znaleziono strony' };
 const body = {
@@ -14,15 +14,15 @@ const body = {
 };
 const back = { en: 'Back to home', hu: 'Vissza a főoldalra', pl: 'Powrót do strony głównej' };
 ---
-<Layout>
+<Layout noindex>
   <Header />
   <main>
     <section>
       <div class="wrap">
         <p class="kicker">404</p>
-        <h1><T t={heading} /></h1>
-        <p class="hero-sub"><T t={body} /></p>
-        <p class="section-cta"><a class="btn btn-primary" href={home}><T t={back} /></a></p>
+        <h1><T t={heading} all /></h1>
+        <p class="hero-sub"><T t={body} all /></p>
+        <p class="section-cta"><a class="btn btn-primary" href={home}><T t={back} all /></a></p>
       </div>
     </section>
   </main>

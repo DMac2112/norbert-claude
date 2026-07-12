@@ -1,8 +1,16 @@
 ---
-// T — trilingual text. Renders all three languages; CSS shows only the active one
-// (html[data-lang] rule in global.css). All three ship in the HTML → crawlable, no
-// flash, and the page still works with JS off (defaults to English).
+// T — trilingual text.
+//   default : renders ONLY the active language (from the URL) as inline text.
+//             One language per route → crawlable, no-JS correct, minimal DOM.
+//   all=true: renders all three languages as sibling spans toggled by html[data-lang]
+//             (see global.css). Used only by the single GitHub-Pages 404.html.
+import { localeFromUrl } from '../lib/locale';
 export interface Tr { en: string; hu: string; pl: string }
-const { t } = Astro.props as { t: Tr };
+const { t, all = false } = Astro.props as { t: Tr; all?: boolean };
+const lang = localeFromUrl(Astro.url);
 ---
-<span class="t" lang="en">{t.en}</span><span class="t" lang="hu">{t.hu}</span><span class="t" lang="pl">{t.pl}</span>
+{all ? (
+  <Fragment><span class="t" lang="en">{t.en}</span><span class="t" lang="hu">{t.hu}</span><span class="t" lang="pl">{t.pl}</span></Fragment>
+) : (
+  t[lang]
+)}

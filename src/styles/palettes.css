@@ -133,3 +133,51 @@ html[data-palette="night"] {
   --line: rgba(240, 233, 221, 0.14);
   --brand-text: #86d3bf;
 }
+
+/* 9 · MULBERRY — Dark mode. Deep aubergine paper, mulberry-rose primary, warm apricot-gold. */
+html[data-palette="mulberry"] {
+  --bg: #1a141a;
+  --bg-band: #221a22;
+  --ink: #f0e6ec;
+  --ink-soft: #bda9b6;
+  --teal: #a34270;
+  --teal-deep: #3d1730;
+  --teal-tint: #2c1f28;
+  --amber: #d9a25e;
+  --amber-tint: #2f2418;
+  --card: #241c23;
+  --line: rgba(240, 230, 236, 0.14);
+  --brand-text: #e6a6cc;
+}
+
+/* 10 · MIDNIGHT — Dark mode. Cool navy near-black paper, azure-blue primary, warm copper. */
+html[data-palette="midnight"] {
+  --bg: #14161c;
+  --bg-band: #1b1e26;
+  --ink: #e7ebf2;
+  --ink-soft: #a9b0c0;
+  --teal: #3f66b0;
+  --teal-deep: #1c2b4a;
+  --teal-tint: #1e2636;
+  --amber: #cf8f5a;
+  --amber-tint: #2a2016;
+  --card: #1c1f28;
+  --line: rgba(231, 235, 242, 0.14);
+  --brand-text: #8fb4f0;
+}
+
+/* 11 · EMBER — Dark mode. Warm espresso paper, burnt terracotta, honey gold. */
+html[data-palette="ember"] {
+  --bg: #1a1512;
+  --bg-band: #221a15;
+  --ink: #f1e7dc;
+  --ink-soft: #bfab99;
+  --teal: #a84b2a;
+  --teal-deep: #4a1e12;
+  --teal-tint: #33221a;
+  --amber: #d6a94e;
+  --amber-tint: #332619;
+  --card: #241d17;
+  --line: rgba(241, 231, 220, 0.14);
+  --brand-text: #f0a878;
+}

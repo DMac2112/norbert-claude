@@ -95,7 +95,7 @@ const langRestore = `(function(){try{var l=localStorage.getItem('nb.lang');if(l=
     <script is:inline>
       (function () {
         var THEMES = ['literary', 'manuscript', 'warm'];
-        var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
+        var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night', 'mulberry', 'midnight', 'ember'];
         var t, p;
         try { t = localStorage.getItem('nb.theme'); p = localStorage.getItem('nb.palette'); } catch (e) { /* stateless is fine */ }
         var el = document.documentElement;
@@ -138,8 +138,8 @@ const langRestore = `(function(){try{var l=localStorage.getItem('nb.lang');if(l=
       }
       applyTheme(document.documentElement.dataset.theme || 'literary');
 
-      var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night'];
-      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold', velvet: 'Velvet', dusk: 'Dusk', grove: 'Grove', blush: 'Blush', night: 'Night' };
+      var PALETTES = ['warm', 'cool', 'bold', 'velvet', 'dusk', 'grove', 'blush', 'night', 'mulberry', 'midnight', 'ember'];
+      var PALETTE_LABELS = { warm: 'Warm', cool: 'Cool', bold: 'Bold', velvet: 'Velvet', dusk: 'Dusk', grove: 'Grove', blush: 'Blush', night: 'Night', mulberry: 'Mulberry', midnight: 'Midnight', ember: 'Ember' };
       function applyPalette(name) {
         if (PALETTES.indexOf(name) < 0) name = 'warm';
         document.documentElement.dataset.palette = name;
